@@ -17,9 +17,9 @@ au("TermOpen", {
   command = "startinsert",
 })
 
--- Refresh buffers when focus returns (e.g. after closing a tmux popup)
+-- Pick up changes made while Neovim was unfocused.
 au("FocusGained", {
-  group = ag("TmuxPopupRefresh", { clear = true }),
+  group = ag("ExternalChangeRefresh", { clear = true }),
   callback = function()
     vim.cmd("checktime")
   end,
