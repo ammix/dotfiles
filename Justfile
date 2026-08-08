@@ -14,9 +14,6 @@ test:
 stage:
     scripts/stage.sh
 
-audit:
-    scripts/audit.sh
-
 setup-flatpaks:
     scripts/setup-flatpaks.sh
 

@@ -2,16 +2,16 @@ model_reasoning_effort = "high"
 sandbox_mode = "workspace-write"
 web_search = "live"
 
-[projects."{{ .chezmoi.homeDir }}/mydots"]
+[projects."/home/maxim/mydots"]
 trust_level = "trusted"
 
-[projects."{{ .chezmoi.homeDir }}/Vault"]
+[projects."/home/maxim/Vault"]
 trust_level = "trusted"
 
-[projects."{{ .chezmoi.homeDir }}/ammix-os"]
+[projects."/home/maxim/ammix-os"]
 trust_level = "trusted"
 
-[projects."{{ .chezmoi.homeDir }}/Projects"]
+[projects."/home/maxim/Projects"]
 trust_level = "trusted"
 
 [mcp_servers.context7]

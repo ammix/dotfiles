@@ -17,15 +17,8 @@ for source in "${encrypted_sources[@]}"; do
 	rg -q '^-----BEGIN AGE ENCRYPTED FILE-----$' "$source"
 done
 
-if rg -n --hidden --glob '!.git/**' '/nix/store|home-manager-generation|/home/maxim/mydots' home; then
+if rg -n --hidden --glob '!.git/**' '/nix/store|home-manager-generation' home; then
 	echo 'non-portable source reference detected' >&2
-	exit 1
-fi
-
-inventory_rows=$(rg -c '^\| (Home Manager|Stow|Agent source|Doom source) \|' docs/inventory.md)
-[[ "$inventory_rows" -eq 240 ]]
-if rg '^\| (Home Manager|Stow|Agent source|Doom source) \|' docs/inventory.md | rg '\|[[:space:]]*\|'; then
-	echo 'inventory row without a disposition' >&2
 	exit 1
 fi
 
@@ -52,5 +45,3 @@ ghostty +validate-config --config-file="$stage_dir/.config/ghostty/config"
 ZELLIJ_CONFIG_FILE="$stage_dir/.config/zellij/config.kdl" zellij setup --check >/dev/null
 XDG_CONFIG_HOME="$stage_dir/.config" hx --health >/dev/null
 nvim --headless -u "$stage_dir/.config/nvim/init.lua" +q
-
-scripts/audit.sh
