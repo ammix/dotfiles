@@ -20,17 +20,30 @@ Shell startup reads `~/.config/secrets/github-token` and `~/.config/secrets/cont
 ## Commands
 
 - `just fmt` formats repository shell and Neovim Lua files.
-- `just test` runs source, syntax, encryption, completeness, isolated staging, and application configuration checks.
+- `just test` runs source, syntax, encryption, isolated staging, and application configuration checks.
 - `just stage` applies into a new destination under `.stage/`; it never applies to `$HOME`.
-- `just audit` compares unchanged staged files against the captured active configuration.
 - `just setup-flatpaks` installs the declared applications and overrides for the current user only.
 - `just setup-user-services` explicitly enables MPD and the user Flatpak update timer.
 - `just setup-doom` performs the standard Doom Emacs clone and installer flow.
 
+Codex's `~/.codex/config.toml` is intentionally a normal managed file rather than a template. After Codex changes project trust or another setting, capture it with `chezmoi re-add ~/.codex/config.toml` before committing the source repository.
+
 `just setup-flatpaks` is install-only. It does not remove unmanaged or unused applications. The update timer runs `flatpak update --user --noninteractive`.
+
+## Rotating encrypted API keys
+
+Edit the existing private target file directly, restore its private mode, and let Chezmoi re-encrypt it into the source repository:
+
+```bash
+$EDITOR ~/.config/secrets/github-token
+chmod 0600 ~/.config/secrets/github-token
+chezmoi re-add ~/.config/secrets/github-token
+```
+
+Use the same procedure for `~/.config/secrets/context7-api-key`. `chezmoi re-add` preserves the encrypted and private attributes, so the repository continues to contain age ciphertext while the target remains mode `0600`.
+
+Commit the encrypted source change after checking that `just test` passes. Do not inspect secrets with `chezmoi cat` or `chezmoi diff`, and do not pass plaintext through shell variables, command arguments, `tee`, or command logs.
 
 ## Safety
 
 The initial capture was validated only through isolated destinations. Never point `just stage` at the active home, and review `chezmoi diff` before applying future changes to an established machine.
-
-The complete capture and disposition record is in `docs/inventory.md`. Intentional portability edits are listed in `docs/portability-allowlist.txt`.
