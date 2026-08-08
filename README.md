@@ -26,6 +26,7 @@ Shell startup reads `~/.config/secrets/github-token` and `~/.config/secrets/cont
 - `just setup-flatpaks` migrates system applications to user Flathub, removes the remaining system Flatpak refs and remotes, then installs the declared user applications and overrides.
 - `just setup-user-services` explicitly enables MPD and the user Flatpak update timer.
 - `just setup-doom` performs the standard Doom Emacs clone and installer flow.
+- `just init-music` syncs the music library from `cloud` over SSH.
 
 Codex's `~/.codex/config.toml` is intentionally a normal managed file rather than a template. After Codex changes project trust or another setting, capture it with `chezmoi re-add ~/.codex/config.toml` before committing the source repository.
 
