@@ -25,6 +25,8 @@ set -gx MANPAGER 'nvim +Man!'
 set -gx MANROFFOPT -c
 set -gx OPENCODE_EXPERIMENTAL true
 set -gx VIRTUAL_ENV_DISABLE_PROMPT 1
+set -gx FZF_TMUX 1
+set -gx SSH_AUTH_SOCK "$HOME/.1password/agent.sock"
 set -gx MAKEFLAGS "--jobs="(nproc)
 fish_add_path "$HOME/.local/bin" "$HOME/.bun/bin" "$HOME/.cargo/bin" /usr/local/bin /usr/bin /bin /usr/sbin /sbin
 
@@ -56,6 +58,7 @@ status is-interactive; and begin
     alias eza 'eza --icons always --color always --group-directories-first'
     alias ff fastfetch
     alias grep 'ugrep --color=auto'
+    alias ifone 'rsync -ahvP ~/mnt/DCIM/* /home/maxim/backupDir'
     alias ip 'ip -color'
     alias jctl 'journalctl -p 3 -xb'
     alias la 'lsd -A'
@@ -66,6 +69,7 @@ status is-interactive; and begin
     alias llt 'lsd -l --tree'
     alias ls lsd
     alias lt 'lsd --tree'
+    alias navi "rsync -havP --exclude '*.m3u' --delete -e ssh ~/Music/* my@cloud:/home/my/navi/music"
     alias psmem 'ps auxf | sort -nr -k 4'
     alias psmem10 'ps auxf | sort -nr -k 4 | head -10'
     alias sshc 'ssh cloud'
