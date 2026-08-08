@@ -1,0 +1,43 @@
+[[mgr.prepend_keymap]]
+desc = "Cd to ~/Projects/"
+on = ["g", "C"]
+run = "cd ~/Projects/"
+
+[[mgr.prepend_keymap]]
+desc = "Cd to ~/Documents/"
+on = ["g", "D"]
+run = "cd ~/Documents/"
+
+[[mgr.prepend_keymap]]
+desc = "Cd to ~/Games"
+on = ["g", "G"]
+run = "cd ~/Games/"
+
+[[mgr.prepend_keymap]]
+desc = "Cd to ~/Games/VNs"
+on = ["g", "v"]
+run = "cd ~/Games/VNs"
+
+[[mgr.prepend_keymap]]
+desc = "Cd to ~/Pictures"
+on = ["g", "p"]
+run = "cd ~/Pictures/"
+
+[[mgr.prepend_keymap]]
+desc = "Cd to ~/Music"
+on = ["g", "m"]
+run = "cd ~/Music/"
+
+[[mgr.prepend_keymap]]
+desc = "Cd to Steam Games"
+on = ["g", "s"]
+run = "cd ~/.var/app/com.valvesoftware.Steam/.local/share/Steam/steamapps/common/"
+
+[[mgr.prepend_keymap]]
+desc = "Change permission"
+on = ["c", "m"]
+run = "plugin chmod"
+
+[[mgr.prepend_keymap]]
+on = "M"
+run = "plugin mount"

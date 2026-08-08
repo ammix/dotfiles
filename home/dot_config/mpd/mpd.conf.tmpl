@@ -1,0 +1,10 @@
+music_directory "{{ .chezmoi.homeDir }}/Music"
+playlist_directory "{{ .chezmoi.homeDir }}/Music/Playlists"
+db_file "{{ .chezmoi.homeDir }}/Music/database"
+state_file "{{ .chezmoi.homeDir }}/.local/share/mpd/state"
+sticker_file "{{ .chezmoi.homeDir }}/.local/share/mpd/sticker.sql"
+
+audio_output {
+  type "pipewire"
+  name "PipeWire"
+}

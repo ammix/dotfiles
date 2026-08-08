@@ -1,0 +1,31 @@
+background = #11111b
+background-blur = true
+background-opacity = 0.800000
+command = fish -C fastfetch
+confirm-close-surface = false
+cursor-color = cell-foreground
+cursor-style = bar
+cursor-text = cell-background
+custom-shader = shaders/cursor.glsl
+font-family = Fira Code
+font-family = Symbols Nerd Font Mono
+font-size = 13
+keybind = all:ctrl+shift+t=new_tab
+keybind = ctrl+enter=new_split:right
+keybind = alt+v=new_split:down
+keybind = ctrl+shift+arrow_down=goto_split:down
+keybind = ctrl+shift+arrow_left=goto_split:left
+keybind = ctrl+shift+arrow_right=goto_split:right
+keybind = ctrl+shift+arrow_up=goto_split:up
+maximize = false
+selection-background = cell-foreground
+selection-foreground = cell-background
+shell-integration-features = cursor,sudo,title,ssh-env,ssh-terminfo
+theme = light:catppuccin-mocha,dark:catppuccin-mocha
+theme = Catppuccin Mocha
+unfocused-split-opacity = 1.000000
+window-decoration = none
+window-inherit-working-directory = true
+window-padding-balance = true
+window-padding-x = 5
+window-show-tab-bar = never

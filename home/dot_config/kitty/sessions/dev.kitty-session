@@ -1,0 +1,12 @@
+# Main dev workspace tabs
+new_tab mydots
+cd ~/mydots
+launch
+
+new_tab nvim
+cd ~/mydots/nvim/.config/nvim
+launch
+
+new_tab ammix-os
+cd ~/ammix-os
+launch

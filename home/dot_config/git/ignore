@@ -1,0 +1,6 @@
+Session.vim
+/.direnv/
+/result/
+/result*
+.env
+.codex

@@ -1,0 +1,7 @@
+new_tab mydots
+cd ~/mydots
+launch fish -lc '[ -f Session.vim ] && nvim -S Session.vim || nvim .'
+
+new_tab shell
+cd ~/mydots
+launch

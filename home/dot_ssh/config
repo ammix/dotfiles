@@ -1,0 +1,10 @@
+Host cloud
+  HostName 192.168.178.46
+  User my
+
+Host github.com
+  HostName github.com
+  User git
+
+Host *
+  IdentityAgent ~/.1password/agent.sock

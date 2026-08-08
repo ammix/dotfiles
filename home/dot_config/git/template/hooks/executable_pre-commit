@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+if command -v just >/dev/null 2>&1 && just --summary 2>/dev/null | grep -qw fmt; then
+  just fmt || exit 1
+  git diff --name-only | xargs -r git add
+fi
