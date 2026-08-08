@@ -9,7 +9,7 @@ The source root is `home/`, selected by `.chezmoiroot`. There are no automatic `
 1. Restore the age identity to `~/.config/sops/age/keys.txt` out of band.
 2. Run `chmod 0600 ~/.config/sops/age/keys.txt`.
 3. Install `chezmoi` and `age`.
-4. Run `chezmoi init --apply git@github.com:ammix/dotfiles.git`.
+4. Run `chezmoi init --apply ammix`.
 5. From the cloned source, run `just setup-flatpaks` and `just setup-user-services` when wanted.
 6. Run `just setup-doom` only when Doom Emacs should be installed and activated.
 
