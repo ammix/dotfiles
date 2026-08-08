@@ -1,0 +1,12 @@
+[mgr]
+show_hidden = true
+
+[[open.prepend_rules]]
+url = "*.{rar,cbr,r00,r01,r02,r03}"
+use = ["unrar-extract", "reveal"]
+
+[[opener.unrar-extract]]
+block = true
+desc = "Extract here (unrar)"
+for = "linux"
+run = "unrar x -o+ -- %s1"

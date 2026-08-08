@@ -1,0 +1,26 @@
+{
+  "GUI Libs": {
+    "prefix": "GUILIBS",
+    "body": [
+      "guiLibs = with pkgs; [",
+      "  wayland",
+      "  libxkbcommon",
+      "  egl-wayland",
+      "  libglvnd",
+      "  mesa",
+      "  alsa-lib",
+      "  xorg.libX11",
+      "  xorg.libXcursor",
+      "  xorg.libXrandr",
+      "  xorg.libXi",
+      "  fontconfig",
+      "  dbus",
+      "];",
+      "",
+      "# Remember to add `guiLibs` to your `buildInputs`!",
+      "# And add this to your `shellHook`:",
+      "# export LD_LIBRARY_PATH=\"\\${pkgs.lib.makeLibraryPath buildInputs}:\\$LD_LIBRARY_PATH\""
+    ],
+    "description": "Common GUI libraries and setup for Nix flakes"
+  }
+}

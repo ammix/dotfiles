@@ -1,0 +1,58 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+    . /etc/bashrc
+fi
+
+# User specific environment
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
+    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+export PATH
+
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
+
+# User specific aliases and functions
+if [ -d ~/.bashrc.d ]; then
+    for rc in ~/.bashrc.d/*; do
+        if [ -f "$rc" ]; then
+            . "$rc"
+        fi
+    done
+fi
+unset rc
+
+# opencode
+export PATH="$HOME/.opencode/bin:$PATH"
+
+# sudo-rs
+alias sudo="sudo-rs"
+alias su="su-rs"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:$HOME/.lmstudio/bin"
+# End of LM Studio CLI section
+
+load_private_environment() {
+    local name=$1
+    local path=$2
+    local value
+
+    if [[ ! -r "$path" ]]; then
+        printf 'missing required private environment file: %s\n' "$path" >&2
+        return 1
+    fi
+    IFS= read -r value < "$path"
+    if [[ -z "$value" ]]; then
+        printf 'private environment file is empty: %s\n' "$path" >&2
+        return 1
+    fi
+    printf -v "$name" '%s' "$value"
+    export "$name"
+}
+
+load_private_environment GITHUB_TOKEN "$HOME/.config/secrets/github-token" || return 1
+load_private_environment CONTEXT7_API_KEY "$HOME/.config/secrets/context7-api-key" || return 1
+unset -f load_private_environment

@@ -1,0 +1,93 @@
+[alias]
+	abandon = "!git reset --hard HEAD~1 && git clean -fd"
+	graph = "log --all --graph --decorate --oneline"
+	l = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+
+[branch]
+	sort = "-committerdate"
+
+[color]
+	branch = "auto"
+	diff = "auto"
+	interactive = "auto"
+	status = "auto"
+	ui = true
+
+[column]
+	ui = "auto"
+
+[commit]
+	gpgSign = true
+	verbose = true
+
+[core]
+	compression = 9
+
+[credential "https://gist.github.com"]
+	helper = ""
+	helper = "!gh auth git-credential"
+
+[credential "https://github.com"]
+	helper = ""
+	helper = "!gh auth git-credential"
+
+[diff-so-fancy]
+
+[filter "lfs"]
+	clean = "git-lfs clean -- %f"
+	process = "git-lfs filter-process"
+	required = true
+	smudge = "git-lfs smudge -- %f"
+
+[gpg]
+	format = "ssh"
+
+[gpg "ssh"]
+	defaultKeyCommand = "sh -lc 'sock=\"$SSH_AUTH_SOCK\"; [ -n \"$sock\" ] || sock=\"$HOME/.1password/agent.sock\"; SSH_AUTH_SOCK=\"$sock\" ssh-add -L 2>/dev/null | grep \" 1pass-sign$\" | head -n1'"
+	program = "ssh-keygen"
+
+[help]
+	autocorrect = "immediate"
+
+[init]
+	defaultBranch = "main"
+	templateDir = "/home/maxim/.config/git/template"
+
+[interactive]
+	diffFilter = "diff-so-fancy --patch"
+
+[maintenance]
+	auto = true
+	strategy = "incremental"
+
+[pager]
+	diff = "diff-so-fancy | less '--tabs=4' -RFX"
+	log = "diff-so-fancy | less '--tabs=4' -RFX"
+	show = "diff-so-fancy | less '--tabs=4' -RFX"
+
+[pull]
+	rebase = true
+
+[push]
+	autoSetupRemote = true
+
+[rebase]
+	autoStash = true
+
+[rerere]
+	autoUpdate = true
+	enabled = true
+
+[status]
+	branch = true
+
+[tag]
+	gpgSign = true
+	sort = "-version:refname"
+
+[url "git@github.com:"]
+	insteadOf = "https://github.com/"
+
+[user]
+	email = "maxim@ammix.dev"
+	name = "ammix"

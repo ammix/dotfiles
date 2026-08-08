@@ -1,0 +1,8 @@
+--add-metadata
+--audio-format best
+--embed-thumbnail
+--extract-audio
+--ignore-errors
+--output /home/maxim/Music/%(title)s.%(ext)s
+--playlist-reverse
+--remote-components ejs:github

@@ -1,0 +1,7 @@
+new_tab nvim
+cd ~/mydots/nvim/.config/nvim
+launch fish -lc '[ -f Session.vim ] && nvim -S Session.vim || nvim .'
+
+new_tab shell
+cd ~/mydots/nvim/.config/nvim
+launch

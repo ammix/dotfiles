@@ -1,0 +1,6 @@
+include themes/catppuccin-mocha
+
+set adjust-open	"best"
+set guioptions	"none"
+map j   feedkeys "<C-Down>"
+map k   feedkeys "<C-Up>"
