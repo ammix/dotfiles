@@ -35,13 +35,13 @@ mapfile -t context7_sources < <(find "$runtime_root/secrets.d" -mindepth 2 -maxd
 cmp -s "$stage_dir/.config/secrets/github-token" "${github_sources[0]}"
 cmp -s "$stage_dir/.config/secrets/context7-api-key" "${context7_sources[0]}"
 
-if find "$stage_dir" -type l -printf '%p -> %l\n' | rg '/nix/store|home-manager|/home/maxim/mydots'; then
+if find "$stage_dir" -type l -printf '%l\n' | rg '/nix/store|home-manager|/home/maxim/\.local/share/chezmoi'; then
 	echo 'staged target contains a forbidden symlink' >&2
 	exit 1
 fi
 
 GIT_CONFIG_GLOBAL="$stage_dir/.config/git/config" git config --global --list >/dev/null
-ghostty +validate-config --config-file="$stage_dir/.config/ghostty/config"
+XDG_CONFIG_HOME="$stage_dir/.config" ghostty +validate-config --config-file="$stage_dir/.config/ghostty/config"
 ZELLIJ_CONFIG_FILE="$stage_dir/.config/zellij/config.kdl" zellij setup --check >/dev/null
 XDG_CONFIG_HOME="$stage_dir/.config" hx --health >/dev/null
 nvim --headless -u "$stage_dir/.config/nvim/init.lua" +q

@@ -22,7 +22,6 @@ selection-background = cell-foreground
 selection-foreground = cell-background
 shell-integration-features = cursor,sudo,title,ssh-env,ssh-terminfo
 theme = light:catppuccin-mocha,dark:catppuccin-mocha
-theme = Catppuccin Mocha
 unfocused-split-opacity = 1.000000
 window-decoration = none
 window-inherit-working-directory = false

@@ -29,6 +29,11 @@ set -gx MAKEFLAGS "--jobs="(nproc)
 fish_add_path "$HOME/.local/bin" "$HOME/.bun/bin" "$HOME/.cargo/bin" /usr/local/bin /usr/bin /bin /usr/sbin /sbin
 
 status is-interactive; and begin
+    # Keep the logical /home path so Starship recognizes home on Atomic systems.
+    if string match -q "/var/home/*" (pwd)
+        cd (string replace -r "^/var/home/" "/home/" (pwd))
+    end
+
     abbr --add -- consolidate-here 'fd -t f -X mv -b -t .; fd -t d -x gio trash'
     abbr --add -- fu 'flatpak uninstall --user --delete-data'
     abbr --add -- ga 'git add --all'

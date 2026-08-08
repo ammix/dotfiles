@@ -2,7 +2,7 @@ model_reasoning_effort = "high"
 sandbox_mode = "workspace-write"
 web_search = "live"
 
-[projects."/home/maxim/mydots"]
+[projects."/home/maxim/.local/share/chezmoi"]
 trust_level = "trusted"
 
 [projects."/home/maxim/Vault"]
