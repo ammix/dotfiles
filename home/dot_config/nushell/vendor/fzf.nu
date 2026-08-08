@@ -5,9 +5,6 @@
 #  / __/ / /_/ __/
 # /_/   /___/_/ key-bindings.nu
 #
-# - $FZF_TMUX               (default: 0)
-# - $FZF_TMUX_OPTS
-# - $FZF_TMUX_HEIGHT        (default: 40%)
 # - $FZF_CTRL_T_COMMAND     (set to "" to disable)
 # - $FZF_CTRL_T_OPTS
 # - $FZF_CTRL_R_COMMAND     (set to "" to disable)
@@ -23,7 +20,7 @@
 #   2. $FZF_DEFAULT_OPTS_FILE contents
 #   3. $FZF_DEFAULT_OPTS, $append
 def __fzf_defaults [prepend: string, append: string]: nothing -> string {
-  let base = $"--height ($env.FZF_TMUX_HEIGHT? | default '40%') --min-height 20+ --bind=ctrl-z:ignore ($prepend)"
+  let base = $"--height 40% --min-height 20+ --bind=ctrl-z:ignore ($prepend)"
   let opts_file = if ($env.FZF_DEFAULT_OPTS_FILE? | default '' | is-not-empty) {
     try { open --raw ($env.FZF_DEFAULT_OPTS_FILE) | str trim } catch { '' }
   } else {
@@ -33,18 +30,7 @@ def __fzf_defaults [prepend: string, append: string]: nothing -> string {
   $"($base) ($opts_file) ($default_opts) ($append)" | str trim
 }
 
-# Return the fzf command to use: fzf-tmux when inside tmux and
-# FZF_TMUX is enabled or FZF_TMUX_OPTS is set, plain fzf otherwise.
 def __fzfcmd []: nothing -> list<string> {
-  let in_tmux = ($env.TMUX_PANE? | default '' | into string | is-not-empty)
-  if $in_tmux {
-    let fzf_tmux = ($env.FZF_TMUX? | default 0 | into string)
-    let fzf_tmux_opts = ($env.FZF_TMUX_OPTS? | default '' | into string)
-    if ($fzf_tmux != '0') or ($fzf_tmux_opts | is-not-empty) {
-      let opts = if ($fzf_tmux_opts | is-not-empty) { $fzf_tmux_opts } else { $"-d($env.FZF_TMUX_HEIGHT? | default '40%')" }
-      return ['fzf-tmux' ...(($opts | split row ' ' | where { $in != '' })) '--']
-    }
-  }
   ['fzf']
 }
 
@@ -183,9 +169,6 @@ export-env {
 # These can be overridden in your config.nu or environment.
 # Example: $env.FZF_COMPLETION_TRIGGER = "!<TAB>"
 
-# - $env.FZF_TMUX                 (default: 0)
-# - $env.FZF_TMUX_OPTS            (default: empty)
-# - $env.FZF_TMUX_HEIGHT          (default: 40%)
 # - $env.FZF_COMPLETION_TRIGGER   (default: '**')
 # - $env.FZF_COMPLETION_OPTS      (default: empty)
 # - $env.FZF_COMPLETION_PATH_OPTS (default: empty)
@@ -209,7 +192,7 @@ $env.FZF_COMPLETION_DIR_COMMANDS = $env.FZF_COMPLETION_DIR_COMMANDS? | default [
 
 # Helper to build default fzf options list
 def __fzf_defaults_completion [prepend: string, append: string]: nothing -> string {
-  let base = $"--height ($env.FZF_TMUX_HEIGHT? | default '40%') --min-height 20+ --bind=ctrl-z:ignore ($prepend)"
+  let base = $"--height 40% --min-height 20+ --bind=ctrl-z:ignore ($prepend)"
   let opts_file = if ($env.FZF_DEFAULT_OPTS_FILE? | default '' | is-not-empty) {
     try { open --raw ($env.FZF_DEFAULT_OPTS_FILE) | str trim } catch { '' }
   } else {
@@ -219,10 +202,9 @@ def __fzf_defaults_completion [prepend: string, append: string]: nothing -> stri
   $"($base) ($opts_file) ($default_opts) ($append)" | str trim
 }
 
-# Wrapper for running fzf or fzf-tmux
 def __fzf_comprun [ context_name: string       # e.g., "fzf-completion" , "fzf-helper" - mainly for potential debugging
                   , query:        string       # The initial query string for fzf
-                  , fzf_opts_arg: list<string> # Remaining options for fzf/fzf-tmux
+                  , fzf_opts_arg: list<string> # Remaining options for fzf
                   ] {
   let stdin_content = try {
     # Collect stdin into a single string. Adjust if structured data is expected.
@@ -234,9 +216,6 @@ def __fzf_comprun [ context_name: string       # e.g., "fzf-completion" , "fzf-h
   let fzf_default_opts = (__fzf_defaults_completion "" ($env.FZF_COMPLETION_OPTS | default ''))
   let fzf_prefinal_opt = ['--query', $query, '--reverse'] | append $fzf_opts_arg
 
-  # Get the configured height, defaulting to '40%'
-  let height_opt = $env.FZF_TMUX_HEIGHT? | default '40%'
-
   # Determine if fzf should generate its own candidates via walker
   let has_walker = ($fzf_prefinal_opt | find '--walker' | is-not-empty)
 
@@ -245,23 +224,7 @@ def __fzf_comprun [ context_name: string       # e.g., "fzf-completion" , "fzf-h
     # Note: Nushell doesn't have a direct equivalent to Zsh/Bash `type -t _fzf_comprun`.
     # This check assumes a user might define a custom command named `_fzf_comprun`.
     _fzf_comprun $context_name $query ...$fzf_prefinal_opt # Pass args correctly to custom function
-  } else if ($env.TMUX_PANE? | default '' | into string | is-not-empty) and (($env.FZF_TMUX? | default 0) != 0 or ($env.FZF_TMUX_OPTS? | is-not-empty)) {
-    # Running inside tmux, use fzf-tmux
-    let final_fzf_opts = if ($env.FZF_TMUX_OPTS? | is-not-empty) {
-      $env.FZF_TMUX_OPTS | split row ' ' | append ['--'] | append $fzf_prefinal_opt
-    } else {
-      # Use the default -d option with the configured height for fzf-tmux
-      ['-d', $height_opt, '--'] | append $fzf_prefinal_opt
-    }
-
-    if $has_walker or ($stdin_content == null) {
-      with-env { FZF_DEFAULT_OPTS: $fzf_default_opts, FZF_DEFAULT_OPTS_FILE: '' } { fzf-tmux ...$final_fzf_opts }
-    } else {
-      $stdin_content | with-env { FZF_DEFAULT_OPTS: $fzf_default_opts, FZF_DEFAULT_OPTS_FILE: '' } { fzf-tmux ...$final_fzf_opts }
-    }
-
   } else {
-    # Not in tmux or not configured for fzf-tmux, use fzf directly
     let final_fzf_opts = $fzf_prefinal_opt
 
     if $has_walker or ($stdin_content == null) {

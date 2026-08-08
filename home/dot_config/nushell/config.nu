@@ -1,5 +1,4 @@
 load-env {
-  FZF_TMUX: "1"
   EDITOR: "emacs"
   VISUAL: "emacs"
   SUDO_EDITOR: "nvim"

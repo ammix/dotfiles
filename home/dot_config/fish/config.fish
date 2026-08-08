@@ -25,7 +25,6 @@ set -gx MANPAGER 'nvim +Man!'
 set -gx MANROFFOPT -c
 set -gx OPENCODE_EXPERIMENTAL true
 set -gx VIRTUAL_ENV_DISABLE_PROMPT 1
-set -gx FZF_TMUX 1
 set -gx SSH_AUTH_SOCK "$HOME/.1password/agent.sock"
 set -gx MAKEFLAGS "--jobs="(nproc)
 fish_add_path "$HOME/.local/bin" "$HOME/.bun/bin" "$HOME/.cargo/bin" /usr/local/bin /usr/bin /bin /usr/sbin /sbin

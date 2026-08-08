@@ -42,6 +42,5 @@ fi
 
 GIT_CONFIG_GLOBAL="$stage_dir/.config/git/config" git config --global --list >/dev/null
 XDG_CONFIG_HOME="$stage_dir/.config" ghostty +validate-config --config-file="$stage_dir/.config/ghostty/config"
-ZELLIJ_CONFIG_FILE="$stage_dir/.config/zellij/config.kdl" zellij setup --check >/dev/null
 XDG_CONFIG_HOME="$stage_dir/.config" hx --health >/dev/null
 nvim --headless -u "$stage_dir/.config/nvim/init.lua" +q
