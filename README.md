@@ -23,7 +23,7 @@ Shell startup reads `~/.config/secrets/github-token` and `~/.config/secrets/cont
 - `just fmt` formats repository shell and Neovim Lua files.
 - `just test` runs source, syntax, encryption, isolated staging, and application configuration checks.
 - `just stage` applies into a new destination under `.stage/`; it never applies to `$HOME`.
-- `just setup-flatpaks` migrates system applications to user Flathub, removes the remaining system Flatpak refs and remotes, then installs the declared user applications and overrides.
+- `just setup-flatpaks` migrates system applications to user Flathub, removes the remaining system Flatpak refs and remotes, then installs the declared user applications.
 - `just setup-user-services` explicitly enables MPD and the user Flatpak update timer.
 - `just setup-doom` performs the standard Doom Emacs clone and installer flow.
 - `just init-music` syncs the music library from `cloud` over SSH.
@@ -31,6 +31,8 @@ Shell startup reads `~/.config/secrets/github-token` and `~/.config/secrets/cont
 Codex's `~/.codex/config.toml` is intentionally a normal managed file rather than a template. After Codex changes project trust or another setting, capture it with `chezmoi re-add ~/.codex/config.toml` before committing the source repository.
 
 `just setup-flatpaks` installs each system application from user Flathub before removing its system copy, preserving application data. It does not remove unmanaged user applications. The update timer runs `flatpak update --user --noninteractive`.
+
+Flatpak overrides are ordinary Chezmoi-managed files under `~/.local/share/flatpak/overrides`. After changing them with Flatseal or `flatpak override --user`, capture the result with `chezmoi re-add ~/.local/share/flatpak/overrides`.
 
 ## Rotating encrypted API keys
 

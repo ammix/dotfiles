@@ -66,18 +66,3 @@ if [[ -n "${system_remotes_output//[[:space:]]/}" ]]; then
 fi
 
 flatpak install --user --noninteractive flathub "${apps[@]}"
-
-flatpak override --user --filesystem=xdg-config/cosmic
-flatpak override --user --talk-name=com.system76.CosmicSettingsDaemon
-flatpak override --user --talk-name='com.system76.CosmicSettingsDaemon.*'
-flatpak override --user --nosocket=x11 app.zen_browser.zen
-flatpak override --user --socket=fallback-x11 --nosocket=x11 com.discordapp.Discord
-flatpak override --user --env=PROTON_ENABLE_WAYLAND=1 com.valvesoftware.Steam
-flatpak override --user \
-	--filesystem=xdg-data/applications \
-	--filesystem=xdg-data/Steam/compatibilitytools.d \
-	--filesystem=~/.var/app/com.valvesoftware.Steam/.steam/steam \
-	--filesystem=~/Games \
-	--filesystem=xdg-data/umu \
-	--nofilesystem=home \
-	io.github.Faugus.faugus-launcher
