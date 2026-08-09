@@ -1,2 +1,2 @@
 [Context]
-filesystems=xdg-data/umu;~/Games;~/.var/app/com.valvesoftware.Steam/.steam/steam;xdg-data/Steam/compatibilitytools.d;xdg-data/applications;!home
+filesystems=~/.local/share/umu;xdg-data/applications;~/.steam/steam/compatibilitytools.d;~/.var/app/com.valvesoftware.Steam/.steam/steam;~/Games;!home
