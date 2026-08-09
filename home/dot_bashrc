@@ -27,3 +27,4 @@ unset rc
 # sudo-rs
 alias sudo="sudo-rs"
 alias su="su-rs"
+. "$HOME/.cargo/env"
