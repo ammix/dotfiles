@@ -2,6 +2,10 @@
 show_hidden = true
 
 [[open.prepend_rules]]
+url = "*.zip"
+use = ["extract", "reveal"]
+
+[[open.prepend_rules]]
 url = "*.{rar,cbr,r00,r01,r02,r03}"
 use = ["unrar-extract", "reveal"]
 
