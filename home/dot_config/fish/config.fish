@@ -39,7 +39,7 @@ status is-interactive; and begin
     abbr --add -- fu 'flatpak uninstall --user --delete-data'
     abbr --add -- ga 'git add --all'
     abbr --add -- chd 'chezmoi diff'
-    abbr --add -- chr 'chazmoi re-add'
+    abbr --add -- chr 'chezmoi re-add'
     abbr --add -- cha 'chezmoi apply -v'
     abbr --add -- gc 'git commit'
     abbr --add -- gcl 'git clone'
@@ -50,6 +50,8 @@ status is-interactive; and begin
     abbr --add -- gst 'git status --short'
     abbr --add -- gu 'git pull'
     abbr --add -- sshc 'ssh cloud'
+    abbr --add -- rmr 'rm -rf'
+    abbr --add -- rm 'rm -i'
 
     alias .. 'cd ..'
     alias ... 'cd ../..'
