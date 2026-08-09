@@ -87,7 +87,6 @@ status is-interactive; and begin
     if test "$TERM" != dumb
         starship init fish | source
     end
-    direnv hook fish | source
 
     if set -q KITTY_INSTALLATION_DIR
         set --global KITTY_SHELL_INTEGRATION no-rc
