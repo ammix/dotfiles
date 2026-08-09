@@ -23,6 +23,9 @@ trust_level = "trusted"
 [projects."/var/home/maxim/mydots"]
 trust_level = "trusted"
 
+[projects."/var/home/maxim/Projects/finances-libcosmic"]
+trust_level = "trusted"
+
 [mcp_servers.context7]
 url = "https://mcp.context7.com/mcp"
 enabled = true
