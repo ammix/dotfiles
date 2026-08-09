@@ -1,6 +1,6 @@
-function chp --description 'Stage, commit, and push Chezmoi changes'
+function chc --description 'Stage and commit Chezmoi changes'
     if test (count $argv) -eq 0
-        echo 'usage: chp COMMIT MESSAGE' >&2
+        echo 'usage: chc COMMIT MESSAGE' >&2
         return 2
     end
 
@@ -10,7 +10,4 @@ function chp --description 'Stage, commit, and push Chezmoi changes'
     or return
 
     chezmoi git -- commit -m "$message"
-    or return
-
-    chezmoi git -- push
 end
