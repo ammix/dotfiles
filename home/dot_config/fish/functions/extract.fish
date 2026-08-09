@@ -4,7 +4,7 @@ function extract
             tar -xvf "$argv[1]"
         case "*.zip" "*.7z" "*.jar" "*.war" "*.ear"
             set dirname (path change-extension "" "$argv[1]")
-            7zz x "$argv[1]" -o"$dirname"
+            7z x "$argv[1]" -o"$dirname"
         case "*.rar"
             set archive "$argv[1]"
             set dirname (path change-extension "" "$archive")
