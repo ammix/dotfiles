@@ -1,9 +1,7 @@
-%YAML 1.1
----
 git:
   autoFetch: true
-  pagers:
-  - pager: diff-so-fancy
+  diffRenderers:
+    - command: diff-so-fancy
   parseEmoji: true
 gui:
   nerdFontsVersion: '3'
