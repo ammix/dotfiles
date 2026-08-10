@@ -8,19 +8,6 @@ load-env {
   VIRTUAL_ENV_DISABLE_PROMPT: "1"
 }
 
-let github_token_path = ($nu.home-path | path join .config secrets github-token)
-let context7_token_path = ($nu.home-path | path join .config secrets context7-api-key)
-if not ($github_token_path | path exists) {
-  error make {msg: $"missing required private environment file: ($github_token_path)"}
-}
-if not ($context7_token_path | path exists) {
-  error make {msg: $"missing required private environment file: ($context7_token_path)"}
-}
-load-env {
-  GITHUB_TOKEN: (open --raw $github_token_path | str trim)
-  CONTEXT7_API_KEY: (open --raw $context7_token_path | str trim)
-}
-
 source ~/.config/nushell/vendor/catppuccin-mocha.nu
 source ~/.config/nushell/vendor/zoxide.nu
 use ~/.config/nushell/vendor/starship.nu
