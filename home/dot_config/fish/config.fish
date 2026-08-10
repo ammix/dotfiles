@@ -27,7 +27,7 @@ set -gx OPENCODE_EXPERIMENTAL true
 set -gx VIRTUAL_ENV_DISABLE_PROMPT 1
 set -gx SSH_AUTH_SOCK "$HOME/.1password/agent.sock"
 set -gx MAKEFLAGS "--jobs="(nproc)
-fish_add_path "$HOME/.local/bin" "$HOME/.cargo/bin"
+fish_add_path "$HOME/.config/emacs/bin" "$HOME/.local/bin" "$HOME/.cargo/bin"
 
 status is-interactive; and begin
     # Keep the logical /home path so Starship recognizes home on Atomic systems.
