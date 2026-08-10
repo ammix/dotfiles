@@ -1,27 +1,23 @@
 # dotfiles
 
-Portable Chezmoi backup of the effective Linux user environment. Fedora owns system packages, fonts, COSMIC, system services, and `/etc`; this repository owns user configuration, user services, user Flatpaks, and native age-encrypted API-token files.
+Portable Chezmoi backup of the effective Linux user environment. Fedora owns system packages, fonts, COSMIC, system services, and `/etc`; this repository owns user configuration, user services, and user Flatpaks.
 
 The source root is `home/`, selected by `.chezmoiroot`. There are no automatic `run_` scripts, so `chezmoi init --apply` only installs files. Package, Flatpak, Doom Emacs, and user-service setup stays explicit.
 
 ## Bootstrap
 
-1. Restore the age identity to `~/.config/sops/age/keys.txt` out of band.
-2. Run `chmod 0600 ~/.config/sops/age/keys.txt`.
-3. Install `chezmoi` and `age`.
-4. Run `chezmoi init --apply ammix`.
-5. Run `cd "$(chezmoi source-path)"`.
-6. Run `just setup-flatpaks` and `just setup-user-services` when wanted.
-7. Run `just setup-doom` only when Doom Emacs should be installed and activated.
+1. Install `chezmoi`.
+2. Run `chezmoi init --apply ammix`.
+3. Run `cd "$(chezmoi source-path)"`.
+4. Run `just setup-flatpaks` and `just setup-user-services` when wanted.
+5. Run `just setup-doom` only when Doom Emacs should be installed and activated.
 
-The age private key is external backup material and must never be committed. The previous SOPS YAML remains only in `mydots` as the NixOS rollback source.
-
-Shell startup reads `~/.config/secrets/github-token` and `~/.config/secrets/context7-api-key`. Both must exist, be nonempty, and remain mode `0600`.
+GitHub CLI authentication is provided by shell-native 1Password plugin wrappers in the Bash and Fish configurations.
 
 ## Commands
 
 - `just fmt` formats repository shell and Neovim Lua files.
-- `just test` runs source, syntax, encryption, isolated staging, and application configuration checks.
+- `just test` runs source, syntax, isolated staging, and application configuration checks.
 - `just stage` applies into a new destination under `.stage/`; it never applies to `$HOME`.
 - `just setup-flatpaks` migrates system applications to user Flathub, removes the remaining system Flatpak refs and remotes, then installs the declared user applications.
 - `just setup-user-services` explicitly enables MPD and the user Flatpak update timer.
@@ -33,20 +29,6 @@ Codex's `~/.codex/config.toml` is intentionally a normal managed file rather tha
 `just setup-flatpaks` installs each system application from user Flathub before removing its system copy, preserving application data. It does not remove unmanaged user applications. The update timer runs `flatpak update --user --noninteractive`.
 
 Flatpak overrides are ordinary Chezmoi-managed files under `~/.local/share/flatpak/overrides`. After changing them with Flatseal or `flatpak override --user`, capture the result with `chezmoi re-add ~/.local/share/flatpak/overrides`.
-
-## Rotating encrypted API keys
-
-Edit the existing private target file directly, restore its private mode, and let Chezmoi re-encrypt it into the source repository:
-
-```bash
-$EDITOR ~/.config/secrets/github-token
-chmod 0600 ~/.config/secrets/github-token
-chezmoi re-add ~/.config/secrets/github-token
-```
-
-Use the same procedure for `~/.config/secrets/context7-api-key`. `chezmoi re-add` preserves the encrypted and private attributes, so the repository continues to contain age ciphertext while the target remains mode `0600`.
-
-Commit the encrypted source change after checking that `just test` passes. Do not inspect secrets with `chezmoi cat` or `chezmoi diff`, and do not pass plaintext through shell variables, command arguments, `tee`, or command logs.
 
 ## Safety
 

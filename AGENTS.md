@@ -8,7 +8,7 @@
 ## Safety
 
 - Never apply Chezmoi to the active home during validation; use `just stage`.
-- Never print, decrypt, or commit secret plaintext or the age identity.
+- Never print or commit secret plaintext.
 - Flatpak migration must install the user copy before removing the system copy.
 
 ## Workflow

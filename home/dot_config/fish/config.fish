@@ -1,22 +1,10 @@
 fish_config theme choose catppuccin-mocha
 set fish_greeting
 
-function load_private_environment --argument-names name path
-    if not test -r "$path"
-        echo "missing required private environment file: $path" >&2
-        return 1
-    end
-    set -l value (string collect <"$path")
-    if test -z "$value"
-        echo "private environment file is empty: $path" >&2
-        return 1
-    end
-    set -gx $name "$value"
+set -x OP_PLUGIN_ALIASES_SOURCED 1
+function gh --wraps gh --description "1Password shell plugin for GitHub CLI"
+    op plugin run -- gh $argv
 end
-
-load_private_environment GITHUB_TOKEN "$HOME/.config/secrets/github-token"; or return 1
-load_private_environment CONTEXT7_API_KEY "$HOME/.config/secrets/context7-api-key"; or return 1
-functions --erase load_private_environment
 
 set -gx EDITOR emacs
 set -gx VISUAL emacs
