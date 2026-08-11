@@ -22,7 +22,7 @@ status is-interactive; and begin
         cd (string replace -r "^/var/home/" "/home/" (pwd))
     end
 
-    abbr --add -- consolidate-here 'fd -t f -X mv -b -t .; fd -t d -x gio trash'
+    abbr --add -- consolidate-here 'fd -t f -X mv -b -t .; fd -t d -x rmdir'
     abbr --add -- fu 'flatpak uninstall --user --delete-data'
     abbr --add -- ga 'git add --all'
     abbr --add -- chd 'chezmoi diff'
