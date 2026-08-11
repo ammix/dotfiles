@@ -47,7 +47,6 @@ status is-interactive; and begin
     alias c z
     alias cat 'bat --style header --style snip --style changes --style header'
     alias ci zi
-    alias eza 'eza --icons always --color always --group-directories-first'
     alias ff fastfetch
     alias grep 'ugrep --color=auto'
     alias ifone 'rsync -ahvP ~/mnt/DCIM/* /home/maxim/backupDir'
@@ -62,8 +61,6 @@ status is-interactive; and begin
     alias ls lsd
     alias lt 'lsd --tree'
     alias navi "rsync -havP --exclude '*.m3u' --delete -e ssh ~/Music/* my@cloud:/home/my/navi/music"
-    alias psmem 'ps auxf | sort -nr -k 4'
-    alias psmem10 'ps auxf | sort -nr -k 4 | head -10'
     alias sshc 'ssh cloud'
     alias svim sudoedit
     alias v nvim
