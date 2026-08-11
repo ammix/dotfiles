@@ -2,4 +2,4 @@
 set -euo pipefail
 
 systemctl --user daemon-reload
-systemctl --user enable --now mpd.service flatpak-update.timer
+systemctl --user enable --now flatpak-update.timer
