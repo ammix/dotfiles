@@ -17,7 +17,6 @@ GitHub CLI authentication is provided by shell-native 1Password plugin wrappers 
 ## Commands
 
 - `just fmt` formats repository shell and Neovim Lua files.
-- `just test` runs source, syntax, isolated staging, and application configuration checks.
 - `just stage` applies into a new destination under `.stage/`; it never applies to `$HOME`.
 - `just setup-flatpaks` migrates system applications to user Flathub, removes the remaining system Flatpak refs and remotes, then installs the declared user applications.
 - `just setup-user-services` explicitly enables MPD and the user Flatpak update timer.

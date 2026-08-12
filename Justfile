@@ -8,9 +8,6 @@ fmt:
     stylua home/dot_config/nvim
     just --fmt --unstable
 
-test:
-    scripts/test.sh
-
 stage:
     scripts/stage.sh
 
