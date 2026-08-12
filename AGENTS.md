@@ -14,4 +14,4 @@
 ## Workflow
 
 - Keep changes small and preserve normal writable configs as normal files, not templates.
-- Run `just fmt` followed by `just test` after changes.
+- Run `just fmt` after changes.
