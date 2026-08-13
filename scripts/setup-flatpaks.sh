@@ -37,6 +37,7 @@ apps=(
 	org.kde.drawy
 	org.localsend.localsend_app
 	org.qbittorrent.qBittorrent
+	fr.handbrake.ghb
 )
 
 flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
