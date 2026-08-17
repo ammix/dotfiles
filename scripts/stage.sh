@@ -13,6 +13,7 @@ chezmoi \
 	--config "$config_file" \
 	--source "$repo_root/home" \
 	--destination "$stage_dir" \
+	--exclude scripts \
 	apply
 
 printf '%s\n' "$stage_dir"

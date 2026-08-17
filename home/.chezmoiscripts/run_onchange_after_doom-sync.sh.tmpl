@@ -1,0 +1,9 @@
+{{- $doom := joinPath .chezmoi.homeDir ".config/emacs/bin/doom" -}}
+{{- if stat $doom -}}
+#!/usr/bin/env bash
+set -euo pipefail
+
+# init.el: {{ include "dot_config/doom/init.el" | sha256sum }}
+# packages.el: {{ include "dot_config/doom/packages.el" | sha256sum }}
+"{{ $doom }}" sync
+{{- end }}
