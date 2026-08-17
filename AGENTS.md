@@ -3,7 +3,6 @@
 ## Repository
 
 - This is a Chezmoi source repository with the managed tree under `home/`.
-- Keep package and service setup explicit; do not add automatic `run_` scripts.
 
 ## Safety
 

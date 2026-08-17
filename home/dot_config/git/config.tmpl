@@ -51,7 +51,7 @@
 
 [init]
 	defaultBranch = "main"
-	templateDir = "/home/maxim/.config/git/template"
+	templateDir = "{{ .chezmoi.homeDir }}/.config/git/template"
 
 [interactive]
 	diffFilter = "diff-so-fancy --patch"

@@ -1,2 +1,0 @@
-[Context]
-filesystems=~/.steam/steam/compatibilitytools.d;~/.local/share/Steam/compatibilitytools.d;~/Games;~/.var/app/com.valvesoftware.Steam/.steam/steam;xdg-data/applications;~/.local/share/umu;!home

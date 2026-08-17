@@ -14,7 +14,7 @@ set -gx MANROFFOPT -c
 set -gx VIRTUAL_ENV_DISABLE_PROMPT 1
 set -gx SSH_AUTH_SOCK "$HOME/.1password/agent.sock"
 set -gx MAKEFLAGS "--jobs="(nproc)
-fish_add_path "$HOME/.config/emacs/bin" "$HOME/.local/bin" "$HOME/.cargo/bin" "$HOME/.local/share/bob/nvim-bin"
+fish_add_path --global "$HOME/.config/emacs/bin" "$HOME/.local/bin" "$HOME/.cargo/bin" "$HOME/.local/share/bob/nvim-bin"
 
 status is-interactive; and begin
     # Keep the logical /home path so Starship recognizes home on Atomic systems.
@@ -50,7 +50,7 @@ status is-interactive; and begin
     alias ci zi
     alias ff fastfetch
     alias grep 'ugrep --color=auto'
-    alias ifone 'rsync -ahvP ~/mnt/DCIM/* /home/maxim/backupDir'
+    alias ifone 'rsync -ahvP ~/mnt/DCIM/* "$HOME/backupDir"'
     alias ip 'ip -color'
     alias jctl 'journalctl -p 3 -xb'
     alias la 'lsd -A'
