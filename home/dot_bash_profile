@@ -10,6 +10,9 @@ if [ -f "${HOME}/.profile" ]; then
   . "${HOME}/.profile"
 fi
 
+# bob neovim path
+export PATH="$PATH:$HOME/.local/share/bob/nvim-bin/"
+
 # User specific environment and startup programs
 export EDITOR=nvim
 export SUDO_EDITOR=nvim
