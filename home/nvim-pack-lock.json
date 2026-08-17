@@ -12,6 +12,10 @@
       "rev": "016802de402556da54c36bd7359b441266b01cdd",
       "src": "https://github.com/stevearc/conform.nvim"
     },
+    "diffview.nvim": {
+      "rev": "4516612fe98ff56ae0415a259ff6361a89419b0a",
+      "src": "https://github.com/sindrets/diffview.nvim"
+    },
     "leap.nvim": {
       "rev": "3e6b4be90b227479aab2c124de0664878cf47ec9",
       "src": "https://codeberg.org/andyg/leap.nvim"
@@ -19,6 +23,10 @@
     "mini.nvim": {
       "rev": "e58ad4b0c9e9376096b9704f98fc00d4c9448870",
       "src": "https://github.com/nvim-mini/mini.nvim"
+    },
+    "neogit": {
+      "rev": "37e0f22a2345bad1bffe01b31970885882f46275",
+      "src": "https://github.com/NeogitOrg/neogit"
     },
     "neovim": {
       "rev": "ff483051a47e27d84bdef47703538df1ed9f4a47",
