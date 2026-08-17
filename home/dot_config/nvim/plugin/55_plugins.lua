@@ -43,9 +43,7 @@ vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 require("typst-preview").setup({})
 
 -- Neogit
-require("neogit").setup({
-  integrations = { diffview = true },
-})
+require("neogit").setup({})
 
 -- Leap
 require("leap").opts.preview = function(ch0, ch1, ch2)

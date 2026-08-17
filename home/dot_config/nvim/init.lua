@@ -36,7 +36,6 @@ vim.pack.add({
   gh("chomosuke/typst-preview.nvim"),
   gh("voldikss/vim-floaterm"),
   gh("NeogitOrg/neogit"),
-  gh("sindrets/diffview.nvim"),
   cb("andyg/leap.nvim"),
   gh("stevearc/oil.nvim"),
 })
