@@ -55,7 +55,9 @@ map("n", "<leader>bo", "<CMD>BdelOther<CR>", { desc = "Delete other buffers" })
 
 -- Floaterm
 map("n", "<leader>t", "<CMD>FloatermToggle<CR>", { desc = "Toggle terminal" })
-map("n", "<leader>gg", "<CMD>FloatermNew --width=0.9 --height=0.9 lazygit<CR>", { desc = "Lazygit" })
+
+-- Git
+map("n", "<leader>gg", "<CMD>Neogit<CR>", { desc = "Neogit" })
 
 -- Build and compile
 map("n", "<leader>cr", "<CMD>make run<CR>", { desc = "Compile and run" })
