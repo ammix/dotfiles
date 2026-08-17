@@ -12,5 +12,6 @@
 
 ## Workflow
 
+- Work directly on `main`; do not create feature branches or open pull requests.
 - Keep changes small and preserve normal writable configs as normal files, not templates.
 - Run `just fmt` after changes.
