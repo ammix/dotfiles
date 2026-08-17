@@ -12,7 +12,7 @@ local source_result = vim.system({ "chezmoi", "source-path" }, { text = true }):
 if source_result.code ~= 0 then
   error(source_result.stderr)
 end
-local source_dir = vim.trim(source_result.stdout)
+local source_dir = assert(vim.uv.fs_realpath(vim.trim(source_result.stdout)))
 local watch_group = vim.api.nvim_create_augroup("chezmoi_edit_watch", { clear = true })
 
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
@@ -26,5 +26,12 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 })
 
 vim.keymap.set("n", "<leader>fc", function()
-  chezmoi_pick.mini()
+  chezmoi_pick.mini(nil, {
+    "--path-style",
+    "absolute",
+    "--include",
+    "files",
+    "--exclude",
+    "externals",
+  })
 end, { desc = "Find chezmoi files" })
