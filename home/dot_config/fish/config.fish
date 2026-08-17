@@ -28,7 +28,7 @@ status is-interactive; and begin
     abbr --add -- chd 'chezmoi diff'
     abbr --add -- chr 'chezmoi re-add'
     abbr --add -- cha 'chezmoi apply -v'
-    abbr --add -- chp 'chezmoi git -- push'
+    abbr --add -- chp 'chezmoi edit --watch'
     abbr --add -- gc 'git commit'
     abbr --add -- gcl 'git clone'
     abbr --add -- gcm 'git commit -m'
