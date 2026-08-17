@@ -1,18 +1,20 @@
 local chezmoi = require("chezmoi")
-local chezmoi_edit = require("chezmoi.commands.__edit")
-local chezmoi_pick = require("chezmoi.pick")
-
-chezmoi.setup({
-  edit = {
-    watch = true,
-  },
-})
 
 local source_result = vim.system({ "chezmoi", "source-path" }, { text = true }):wait()
 if source_result.code ~= 0 then
   error(source_result.stderr)
 end
 local source_dir = assert(vim.uv.fs_realpath(vim.trim(source_result.stdout)))
+
+chezmoi.setup({
+  extra_args = { "--source", source_dir },
+  edit = {
+    watch = true,
+  },
+})
+
+local chezmoi_edit = require("chezmoi.commands.__edit")
+local chezmoi_pick = require("chezmoi.pick")
 local watch_group = vim.api.nvim_create_augroup("chezmoi_edit_watch", { clear = true })
 
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
