@@ -5,8 +5,8 @@
       "src": "https://github.com/catppuccin/nvim"
     },
     "chezmoi.nvim": {
-      "rev": "4167bbec76f693f481a5243f1be521ff0ccf1a6d",
-      "src": "https://github.com/xvzc/chezmoi.nvim"
+      "rev": "c8bc7052b8694c17ee20b157b21419327165fbd7",
+      "src": "https://github.com/ammix/chezmoi.nvim"
     },
     "conform.nvim": {
       "rev": "016802de402556da54c36bd7359b441266b01cdd",
@@ -29,7 +29,7 @@
       "src": "https://github.com/catppuccin/nvim"
     },
     "nvim-lint": {
-      "rev": "9b99aad869102ac01775187abd8d49017b148612",
+      "rev": "5b5b794458b5ff0b17d26c9d7400faaebd00b32d",
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
@@ -47,10 +47,6 @@
     "oil.nvim": {
       "rev": "b73018b75affd13fa38e2fc94ef753b465f770d7",
       "src": "https://github.com/stevearc/oil.nvim"
-    },
-    "plenary.nvim": {
-      "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
-      "src": "https://github.com/nvim-lua/plenary.nvim"
     },
     "trouble.nvim": {
       "rev": "bd67efe408d4816e25e8491cc5ad4088e708a69a",
