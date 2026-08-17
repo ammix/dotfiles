@@ -141,8 +141,7 @@
 
 (map! :n "-" 'dired-jump)
 (map! :n "RET" (cmd! (let ((current-prefix-arg t))
-                        (evil-avy-goto-char-timer))))
-
+                       (evil-avy-goto-char-timer))))
 ;; Harpoon
 ;; You can use this hydra menu that have all the commands
 (map! :n "C-SPC" 'harpoon-quick-menu-hydra)
