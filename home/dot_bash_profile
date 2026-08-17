@@ -11,9 +11,9 @@ if [ -f "${HOME}/.profile" ]; then
 fi
 
 # User specific environment and startup programs
-export EDITOR=emacs
+export EDITOR=nvim
 export SUDO_EDITOR=nvim
-export VISUAL=emacs
+export VISUAL=nvim
 
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:$HOME/.lmstudio/bin"

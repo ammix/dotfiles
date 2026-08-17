@@ -1,6 +1,6 @@
 load-env {
-  EDITOR: "emacs"
-  VISUAL: "emacs"
+  EDITOR: "nvim"
+  VISUAL: "nvim"
   SUDO_EDITOR: "nvim"
   MANPAGER: "nvim +Man!"
   MANROFFOPT: "-c"
@@ -13,7 +13,7 @@ source ~/.config/nushell/vendor/zoxide.nu
 use ~/.config/nushell/vendor/starship.nu
 source ~/.config/nushell/vendor/fzf.nu
 
-$env.config.buffer_editor = "emacs"
+$env.config.buffer_editor = "nvim"
 $env.config.show_banner = false
 $env.config.edit_mode = "vi"
 

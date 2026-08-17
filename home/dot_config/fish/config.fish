@@ -6,8 +6,8 @@ function gh --wraps gh --description "1Password shell plugin for GitHub CLI"
     op plugin run -- gh $argv
 end
 
-set -gx EDITOR emacs
-set -gx VISUAL emacs
+set -gx EDITOR nvim
+set -gx VISUAL nvim
 set -gx SUDO_EDITOR nvim
 set -gx MANPAGER 'nvim +Man!'
 set -gx MANROFFOPT -c
