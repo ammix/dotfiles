@@ -14,6 +14,9 @@ stage:
 setup-flatpaks:
     scripts/setup-flatpaks.sh
 
+setup-nvim:
+    scripts/setup-nvim.sh
+
 setup-user-services:
     scripts/setup-user-services.sh
 
