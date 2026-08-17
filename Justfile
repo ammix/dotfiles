@@ -17,8 +17,5 @@ setup-flatpaks:
 setup-user-services:
     scripts/setup-user-services.sh
 
-setup-doom:
-    scripts/setup-doom.sh
-
 init-music:
     @rsync -havP -e ssh my@cloud:/home/my/navi/music/ "$HOME/Music/"
