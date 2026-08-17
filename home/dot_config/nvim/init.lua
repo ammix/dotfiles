@@ -26,6 +26,8 @@ vim.api.nvim_create_autocmd("PackChanged", {
 vim.pack.add({
   gh("catppuccin/nvim"),
   gh("nvim-mini/mini.nvim"),
+  gh("nvim-lua/plenary.nvim"),
+  gh("xvzc/chezmoi.nvim"),
   gh("nvim-treesitter/nvim-treesitter"),
   gh("neovim/nvim-lspconfig"),
   gh("stevearc/conform.nvim"),
