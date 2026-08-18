@@ -1,10 +1,10 @@
 # Main dev workspace tabs
 new_tab dotfiles
-cd "{{ joinPath .chezmoi.sourceDir ".." }}"
+cd ~/.local/share/chezmoi
 launch
 
 new_tab nvim
-cd "{{ joinPath .chezmoi.sourceDir "dot_config/nvim" }}"
+cd ~/.local/share/chezmoi/home/dot_config/nvim
 launch
 
 new_tab ammix-os
