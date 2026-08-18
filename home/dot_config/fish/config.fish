@@ -38,7 +38,7 @@ status is-interactive; and begin
     abbr --add -- gp 'git push'
     abbr --add -- gst 'git status --short'
     abbr --add -- gu 'git pull'
-    abbr --add -- sshc 'ssh cloud'
+    abbr --add -- sshc 'kitten ssh cloud'
     abbr --add -- rmr 'rm -rf'
     abbr --add -- rm 'rm -i'
 
