@@ -1,7 +1,7 @@
 new_tab nvim
-cd "{{ joinPath .chezmoi.sourceDir "dot_config/nvim" }}"
+cd ~/.local/share/chezmoi/home/dot_config/nvim
 launch fish -lc '[ -f Session.vim ] && nvim -S Session.vim || nvim .'
 
 new_tab shell
-cd "{{ joinPath .chezmoi.sourceDir "dot_config/nvim" }}"
+cd ~/.local/share/chezmoi/home/dot_config/nvim
 launch
