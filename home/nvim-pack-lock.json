@@ -5,7 +5,7 @@
       "src": "https://github.com/catppuccin/nvim"
     },
     "chezmoi.nvim": {
-      "rev": "c8bc7052b8694c17ee20b157b21419327165fbd7",
+      "rev": "cf56284588762bf72c99a25c769f4a43d6c9b9cf",
       "src": "https://github.com/ammix/chezmoi.nvim"
     },
     "conform.nvim": {
@@ -33,11 +33,11 @@
       "src": "https://github.com/catppuccin/nvim"
     },
     "nvim-lint": {
-      "rev": "5b5b794458b5ff0b17d26c9d7400faaebd00b32d",
+      "rev": "0370fe965697aa8f04252a1562441bdc13723cd1",
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
-      "rev": "6fc041976833841cc9d991f45193533fe2a2e09b",
+      "rev": "bff1bd61cb1455040533201ca1edf1e84efa578f",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
