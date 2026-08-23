@@ -28,6 +28,6 @@ vim.o.listchars = "tab:> ,trail:-,extends:>,precedes:<,nbsp:+"
 vim.o.pumblend = 10
 vim.o.pumheight = 10
 vim.o.showcmdloc = "statusline"
-vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+vim.o.formatexpr = require("conform").formatexpr
 vim.o.background = "dark"
 vim.o.makeprg = "just"

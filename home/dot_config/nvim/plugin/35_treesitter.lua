@@ -56,7 +56,7 @@ vim.api.nvim_create_autocmd("FileType", {
       -- add filetypes
     }
     if not vim.list_contains(noIndent, ctx.match) then
-      vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+      vim.bo.indentexpr = require("nvim-treesitter").indentexpr
     end
   end,
 })
