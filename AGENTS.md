@@ -15,3 +15,8 @@
 - Work directly on `main`; do not create feature branches or open pull requests.
 - Keep changes small and preserve normal writable configs as normal files, not templates.
 - Run `just fmt` after changes.
+
+## Commit Messages
+
+- Use `<subsystem>: <summary>` instead of the global Conventional Commits fallback.
+- Derive the short, lowercase subsystem from the changed area, such as `nvim`, `kitty`, `flatpak`, or `agents`. Use `/` for a helpful nested subsystem.

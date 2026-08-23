@@ -7,6 +7,8 @@
 - Use the `gh` CLI for GitHub operations (PRs, issues, etc.)
 - GitHub authentication is provided by the existing 1Password Bash integration. Run authenticated `gh` commands via `bash -lc 'gh ...'` with sandbox escalation (`require_escalated`) because the 1Password desktop socket is unavailable inside the sandbox.
 - Open Pull Requests when done with a feature and all tests and checks pass
+- Use the `writing-commit-messages` skill whenever drafting, reviewing, organizing, or creating commits.
+- Follow project-local commit conventions when present. Otherwise, use Conventional Commits with a mandatory scope: `<type>(<scope>): <description>`.
 
 ## MCP Tooling
 
