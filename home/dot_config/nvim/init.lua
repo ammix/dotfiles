@@ -1,3 +1,4 @@
+-- Bootstrap
 vim.loader.enable()
 
 local gh = function(x)
@@ -7,6 +8,7 @@ local cb = function(x)
   return "https://codeberg.org/" .. x
 end
 
+-- Updates
 vim.api.nvim_create_autocmd("PackChanged", {
   callback = function(ev)
     local data = ev.data or {}
@@ -23,6 +25,7 @@ vim.api.nvim_create_autocmd("PackChanged", {
   end,
 })
 
+-- Plugins
 vim.pack.add({
   gh("catppuccin/nvim"),
   gh("nvim-mini/mini.nvim"),

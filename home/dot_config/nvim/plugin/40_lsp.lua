@@ -1,5 +1,6 @@
 local map = vim.keymap.set
 
+-- Completion
 -- vim.o.completeopt = "menuone,popup,preinsert"
 -- vim.o.autocomplete = true
 
@@ -33,7 +34,7 @@ vim.diagnostic.config({
   },
 })
 
--- LSP keymaps
+-- Mappings
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("UserLspConfig", {}),
   callback = function(ev)
@@ -59,7 +60,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
--- Enable servers
+-- Servers
 vim.lsp.enable({
   "lua_ls",
   "yamlls",
@@ -78,7 +79,7 @@ vim.lsp.enable({
   "harper_ls",
 })
 
--- trouble
+-- Trouble
 require("trouble").setup({})
 
 map("n", "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", { desc = "Diagnostics (Trouble)" })

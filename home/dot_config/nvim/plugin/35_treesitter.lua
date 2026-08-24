@@ -1,3 +1,4 @@
+-- Languages
 local languages = {
   "bash",
   "fish",
@@ -44,6 +45,7 @@ local languages = {
 
 require("nvim-treesitter").install(languages)
 
+-- Runtime
 vim.api.nvim_create_autocmd("FileType", {
   desc = "Enable treesitter highlighting and indent",
   callback = function(ctx)
@@ -61,5 +63,4 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
--- Autotag
 require("nvim-ts-autotag").setup()

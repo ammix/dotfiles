@@ -1,6 +1,10 @@
--- Built-in plugins
+-- Setup
 vim.cmd.packadd("nvim.undotree")
 vim.cmd.packadd("nvim.difftool")
+
+require("typst-preview").setup({})
+
+require("neogit").setup({})
 
 -- Oil
 require("oil").setup({
@@ -39,12 +43,6 @@ require("oil").setup({
 })
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
--- Typst
-require("typst-preview").setup({})
-
--- Neogit
-require("neogit").setup({})
-
 -- Leap
 require("leap").opts.preview = function(ch0, ch1, ch2)
   return not (ch1:match("%s") or (ch0:match("%a") and ch1:match("%a") and ch2:match("%a")))
@@ -57,7 +55,6 @@ require("leap").opts.equivalence_classes = {
 }
 require("leap.user").set_repeat_keys("<enter>", "<backspace>")
 
--- Keymaps
 local map = vim.keymap.set
 map({ "n", "x", "o" }, "s", "<Plug>(leap)", { desc = "Leap" })
 map("n", "S", "<Plug>(leap-from-window)", { desc = "Leap from window" })

@@ -1,24 +1,17 @@
-# .bash_profile
-
-# Get the aliases and functions
+# Startup
 if [ -f ~/.bashrc ]; then
   . ~/.bashrc
 fi
 
-# Source generic profile settings
 if [ -f "${HOME}/.profile" ]; then
   . "${HOME}/.profile"
 fi
 
-# bob neovim path
+# Environment
 export PATH="$PATH:$HOME/.local/share/bob/nvim-bin/"
 
-# User specific environment and startup programs
 export EDITOR=nvim
 export SUDO_EDITOR=nvim
 export VISUAL=nvim
 
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:$HOME/.lmstudio/bin"
-# End of LM Studio CLI section
 . "$HOME/.cargo/env"

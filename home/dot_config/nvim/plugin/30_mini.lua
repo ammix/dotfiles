@@ -1,3 +1,4 @@
+-- Modules
 require("mini.extra").setup()
 local gen_loader = require("mini.snippets").gen_loader
 require("mini.snippets").setup({
@@ -19,6 +20,7 @@ require("mini.pick").setup()
 require("mini.completion").setup()
 require("mini.input").setup()
 
+-- Interface
 local miniclue = require("mini.clue")
 miniclue.setup({
   triggers = {
@@ -93,6 +95,7 @@ require("mini.files").setup({
   },
 })
 
+-- Git
 require("mini.git").setup()
 
 vim.api.nvim_create_autocmd("User", {
@@ -109,6 +112,7 @@ require("mini.diff").setup({
   },
 })
 
+-- Editing
 require("mini.pairs").setup({
   modes = { insert = true, command = true, terminal = true },
   -- skip autopair when next character is one of these
@@ -130,7 +134,6 @@ require("mini.splitjoin").setup({
   },
 })
 
--- mini.surround - Surround functionality
 require("mini.surround").setup({
   mappings = {
     add = "gsa", -- Add surrounding in Normal and Visual modes
@@ -143,6 +146,7 @@ require("mini.surround").setup({
   },
 })
 
+-- Highlights
 local hipatterns = require("mini.hipatterns")
 hipatterns.setup({
   highlighters = {
@@ -155,6 +159,7 @@ hipatterns.setup({
   },
 })
 
+-- Statusline
 local statusline = require("mini.statusline")
 statusline.setup({
   use_icons = true,
@@ -226,7 +231,6 @@ end
 -- Keymaps
 local map = vim.keymap.set
 
--- mini.sessions
 map("n", "<leader>qs", function()
   local session_name = vim.fn.input("Session name: ")
   if session_name and session_name ~= "" then
@@ -242,12 +246,10 @@ map("n", "<leader>ql", function()
   require("mini.sessions").write("Session.vim")
 end, { desc = "Save local session" })
 
--- mini.files
 map("n", "<leader>e", function()
   require("mini.files").open()
 end, { desc = "Open files" })
 
--- pick
 map("n", "<leader>,", function()
   require("mini.pick").builtin.buffers()
 end, { desc = "Buffers" })
@@ -326,7 +328,6 @@ map("n", "<leader>sk", function()
   require("mini.extra").pickers.keymaps()
 end, { desc = "Search Keymaps" })
 
--- mini.comment
 map("n", "<C-c>", function()
   local op = require("mini.comment").operator()
   return op .. "_"
@@ -336,7 +337,6 @@ map("x", "<C-c>", function()
   return require("mini.comment").operator()
 end, { expr = true, desc = "Comment selection" })
 
--- mini.trailspace
 map("n", "<leader>cf", function()
   require("mini.trailspace").trim()
 end, { desc = "Trim Trailspaces" })
@@ -345,12 +345,10 @@ map("n", "<leader>cl", function()
   require("mini.trailspace").trim_last_lines()
 end, { desc = "Trim last lines" })
 
--- mini.diff
 map("n", "<leader>go", function()
   require("mini.diff").toggle_overlay(0)
 end, { desc = "Toggle Diff Overlay" })
 
--- mini.git
 map("n", "<leader>gt", "<cmd>lua MiniGit.toggle()<cr>", { desc = "Git toggle tracking" })
 map("n", "<leader>gc", "<cmd>Git commit<cr>", { desc = "Git toggle tracking" })
 map("n", "<leader>ga", "<cmd>Git add --all<cr>", { desc = "Git add all" })

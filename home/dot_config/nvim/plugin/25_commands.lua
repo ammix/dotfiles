@@ -1,7 +1,7 @@
 local au = vim.api.nvim_create_autocmd
 local ag = vim.api.nvim_create_augroup
 
--- Highlight on yank
+-- Events
 au("TextYankPost", {
   group = ag("MiniBasicsYank", { clear = true }),
   pattern = "*",
@@ -10,7 +10,6 @@ au("TextYankPost", {
   end,
 })
 
--- Start insert in terminal
 au("TermOpen", {
   group = ag("MiniBasicsTerm", { clear = true }),
   pattern = "*",
@@ -25,7 +24,7 @@ au("FocusGained", {
   end,
 })
 
--- Delete all buffers except current
+-- Commands
 vim.api.nvim_create_user_command("BdelOther", function()
   local current_buf = vim.api.nvim_get_current_buf()
   local buffers = vim.api.nvim_list_bufs()

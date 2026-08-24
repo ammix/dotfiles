@@ -1,9 +1,12 @@
 import os
 from urllib.request import urlopen
 
-# load your autoconfig, use this, if the rest of your config is empty!
+# General
 config.load_autoconfig()
+c.auto_save.session = True
+c.window.hide_decoration = True
 
+# Theme
 if not os.path.exists(config.configdir / "theme.py"):
     theme = "https://raw.githubusercontent.com/catppuccin/qutebrowser/main/setup.py"
     with urlopen(theme) as themehtml:
@@ -14,7 +17,7 @@ if os.path.exists(config.configdir / "theme.py"):
     import theme
     theme.setup(c, 'mocha', True)
 
-
+# Search
 c.url.searchengines = {
     'DEFAULT':  'https://duckduckgo.com/?ia=web&q={}',
     '!a':       'https://www.amazon.com/s?k={}',
@@ -27,7 +30,3 @@ c.url.searchengines = {
     '!w':       'https://en.wikipedia.org/wiki/{}',
     '!aw':      'https://wiki.archlinux.org/title/Special:Search/{}'
 }
-
-c.auto_save.session = True
-
-c.window.hide_decoration = True

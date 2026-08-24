@@ -1,3 +1,4 @@
+# Environment
 load-env {
   EDITOR: "nvim"
   VISUAL: "nvim"
@@ -8,11 +9,13 @@ load-env {
   VIRTUAL_ENV_DISABLE_PROMPT: "1"
 }
 
+# Integrations
 source ~/.config/nushell/vendor/catppuccin-mocha.nu
 source ~/.config/nushell/vendor/zoxide.nu
 use ~/.config/nushell/vendor/starship.nu
 source ~/.config/nushell/vendor/fzf.nu
 
+# Options
 $env.config.buffer_editor = "nvim"
 $env.config.show_banner = false
 $env.config.edit_mode = "vi"
@@ -27,7 +30,9 @@ $env.config.completions.external = {
   }
 }
 
+# Aliases
 alias fu = flatpak uninstall --user --delete-data
+
 alias ga = git add
 alias gaa = git add --all
 alias gc = git commit
@@ -38,6 +43,7 @@ alias gpl = git pull
 alias gd = git diff
 alias gra = git remote add
 alias gcl = git clone
+
 alias ".." = cd ..
 alias "..." = cd ../..
 alias "c" = z
@@ -55,6 +61,7 @@ alias "svim" = sudoedit
 alias "v" = nvim
 alias "yt" = yt-dlp
 
+# Commands
 def extract [file: string] {
   let ext = ($file | path parse | get extension)
   let stem = ($file | path parse | get stem)
@@ -88,6 +95,7 @@ def --env y [...args] {
   }
 }
 
+# Hooks
 $env.config.hooks.pre_prompt = (
   $env.config.hooks.pre_prompt?
   | default []

@@ -1,4 +1,4 @@
--- Conform
+-- Formatting
 require("conform").setup({
   default_format_opts = {
     timeout_ms = 3000,
@@ -44,7 +44,7 @@ require("conform").setup({
   },
 })
 
--- Lint
+-- Linting
 local lint = require("lint")
 lint.linters_by_ft = lint.linters_by_ft or {}
 lint.linters_by_ft["markdown"] = nil
@@ -60,7 +60,7 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
   end,
 })
 
--- Keymaps
+-- Mappings
 local map = vim.keymap.set
 
 map("n", "<leader>lf", function()
