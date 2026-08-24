@@ -13,7 +13,7 @@
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "leap.nvim": {
-      "rev": "7884f9455e5bf07bd11a3dcd9f961095a966a5d7",
+      "rev": "c1be35db274f5976cce683b93fcab99937420b63",
       "src": "https://codeberg.org/andyg/leap.nvim"
     },
     "mini.nvim": {
@@ -37,7 +37,7 @@
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
-      "rev": "221c43884319e791519f0d6c94a7f2fbcd653278",
+      "rev": "10e9995a8638ad8f72898de3003ef8c686fe6a52",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
