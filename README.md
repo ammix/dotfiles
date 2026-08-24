@@ -2,15 +2,14 @@
 
 Portable Chezmoi backup of the effective Linux user environment. Fedora owns system packages, fonts, COSMIC, system services, and `/etc`; this repository owns user configuration, user services, and user Flatpaks.
 
-The source root is `home/`, selected by `.chezmoiroot`. There are no automatic `run_` scripts, so `chezmoi init --apply` only installs files. Package, Flatpak, Doom Emacs, and user-service setup stays explicit.
+The source root is `home/`, selected by `.chezmoiroot`. There are no automatic `run_` scripts, so `chezmoi init --apply` only installs files. Package, Flatpak, and user-service setup stays explicit.
 
 ## Bootstrap
 
 1. Install `chezmoi`.
 2. Run `chezmoi init --apply ammix`.
 3. Run `cd "$(chezmoi source-path)"`.
-4. Run `just setup-flatpaks` and `just setup-user-services` when wanted.
-5. Run `just setup-doom` only when Doom Emacs should be installed and activated.
+4. Run `just init-system`.
 
 GitHub CLI authentication is provided by shell-native 1Password plugin wrappers in the Bash and Fish configurations.
 
@@ -18,9 +17,10 @@ GitHub CLI authentication is provided by shell-native 1Password plugin wrappers 
 
 - `just fmt` formats repository shell and Neovim Lua files.
 - `just stage` applies into a new destination under `.stage/`; it never applies to `$HOME`.
+- `just init-system` runs the Rust, Neovim, Flatpak, user-service, and music setup tasks in dependency order.
 - `just setup-flatpaks` migrates system applications to user Flathub, removes the remaining system Flatpak refs and remotes, then installs the declared user applications.
+- `just setup-rust` installs the stable Rust toolchain with the default developer tools, Rust Analyzer, and the Rust standard-library sources.
 - `just setup-user-services` explicitly enables MPD and the user Flatpak update timer.
-- `just setup-doom` performs the standard Doom Emacs clone and installer flow.
 - `just init-music` syncs the music library from `cloud` over SSH.
 
 Codex's `~/.codex/config.toml` is intentionally a normal managed file rather than a template. After Codex changes project trust or another setting, capture it with `chezmoi re-add ~/.codex/config.toml` before committing the source repository.
