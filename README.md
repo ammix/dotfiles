@@ -20,7 +20,7 @@ GitHub CLI authentication is provided by shell-native 1Password plugin wrappers 
 - `just init-system` runs the Rust, Neovim, Flatpak, user-service, and music setup tasks in dependency order.
 - `just setup-flatpaks` migrates system applications to user Flathub, removes the remaining system Flatpak refs and remotes, then installs the declared user applications.
 - `just setup-rust` installs the stable Rust toolchain with the default developer tools, Rust Analyzer, and the Rust standard-library sources.
-- `just setup-user-services` explicitly enables MPD and the user Flatpak update timer.
+- `just setup-user-services` enables daily Flatpak and weekly Rust toolchain update timers.
 - `just init-music` syncs the music library from `cloud` over SSH.
 
 Codex's `~/.codex/config.toml` is intentionally a normal managed file rather than a template. After Codex changes project trust or another setting, capture it with `chezmoi re-add ~/.codex/config.toml` before committing the source repository.

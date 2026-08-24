@@ -1,0 +1,6 @@
+[Unit]
+Description=Update Rust toolchains
+
+[Service]
+Type=oneshot
+ExecStart=%h/.cargo/bin/rustup update

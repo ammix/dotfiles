@@ -2,4 +2,4 @@
 set -euo pipefail
 
 systemctl --user daemon-reload
-systemctl --user enable --now flatpak-update.timer
+systemctl --user enable --now flatpak-update.timer rustup-update.timer
