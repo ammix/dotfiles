@@ -6,7 +6,6 @@ require("mini.snippets").setup({
     gen_loader.from_lang(),
   },
 })
-require("mini.snippets").start_lsp_server()
 require("mini.ai").setup()
 require("mini.align").setup()
 require("mini.icons").setup()
@@ -17,7 +16,6 @@ require("mini.trailspace").setup()
 require("mini.jump").setup()
 require("mini.cmdline").setup()
 require("mini.pick").setup()
-require("mini.completion").setup()
 require("mini.input").setup()
 
 -- Interface

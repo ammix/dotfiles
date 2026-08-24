@@ -24,9 +24,9 @@ map("n", "<C-j>", "<C-w>j", { desc = "Focus below" })
 map("n", "<C-k>", "<C-w>k", { desc = "Focus above" })
 map("n", "<C-l>", "<C-w>l", { desc = "Focus right" })
 
-map("n", "<C-Left>", "<C -w><", { desc = "Resize Left" })
-map("n", "<C-Down>", "<C -w>-", { desc = "Resize Down" })
-map("n", "<C-Up>", "<C   -w>+", { desc = "Resize Up" })
+map("n", "<C-Left>", "<C-w><", { desc = "Resize Left" })
+map("n", "<C-Down>", "<C-w>-", { desc = "Resize Down" })
+map("n", "<C-Up>", "<C-w>+", { desc = "Resize Up" })
 map("n", "<C-Right>", "<C-w>>", { desc = "Resize Right" })
 
 -- Actions

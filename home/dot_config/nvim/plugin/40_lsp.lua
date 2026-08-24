@@ -1,19 +1,5 @@
 local map = vim.keymap.set
 
--- Completion
--- vim.o.completeopt = "menuone,popup,preinsert"
--- vim.o.autocomplete = true
-
--- map("i", "<C-x><C-f>", function()
---   local bufdir = vim.fn.expand("%:p:h")
---   local cwd = vim.fn.getcwd()
---   vim.cmd.lcd(bufdir)
---   vim.defer_fn(function()
---     vim.cmd.lcd(cwd)
---   end, 100)
---   return "<C-x><C-f>"
--- end, { expr = true, desc = "Complete filenames relative to buffer" })
-
 -- Diagnostics
 vim.diagnostic.config({
   underline = true,
@@ -36,27 +22,26 @@ vim.diagnostic.config({
 
 -- Mappings
 vim.api.nvim_create_autocmd("LspAttach", {
-  group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+  group = vim.api.nvim_create_augroup("UserLspConfig"),
   callback = function(ev)
-    vim.lsp.completion.enable(true, ev.data.client_id, ev.buf, { autotrigger = true })
-    local opts = { buffer = ev.buf }
+    local opts = { buf = ev.buf }
     map("n", "<leader>lr", "<CMD>lsp restart<CR>", { desc = "Restart LSP Server" })
     map("n", "K", vim.lsp.buf.hover, opts)
     map("n", "<C-k>", vim.lsp.buf.signature_help, opts)
-    map("n", "gd", vim.lsp.buf.definition, { buffer = ev.buf, desc = "[G]oto [D]efinition" })
-    map("n", "grd", vim.lsp.buf.declaration, { buffer = ev.buf, desc = "[G]oto [D]eclaration" })
+    map("n", "gd", vim.lsp.buf.definition, { buf = ev.buf, desc = "[G]oto [D]efinition" })
+    map("n", "grd", vim.lsp.buf.declaration, { buf = ev.buf, desc = "[G]oto [D]eclaration" })
 
     map("n", "grr", function()
       require("mini.extra").pickers.lsp({ scope = "references" })
-    end, { buffer = ev.buf, desc = "[G]oto [R]eferences" })
+    end, { buf = ev.buf, desc = "[G]oto [R]eferences" })
 
     map("n", "gri", function()
       require("mini.extra").pickers.lsp({ scope = "implementation" })
-    end, { buffer = ev.buf, desc = "[G]oto [I]mplementation" })
+    end, { buf = ev.buf, desc = "[G]oto [I]mplementation" })
 
     map("n", "grt", function()
       require("mini.extra").pickers.lsp({ scope = "type_definition" })
-    end, { buffer = ev.buf, desc = "[G]oto [T]ype Definition" })
+    end, { buf = ev.buf, desc = "[G]oto [T]ype Definition" })
   end,
 })
 

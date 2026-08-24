@@ -17,7 +17,7 @@ require("catppuccin").setup({
   default_integrations = true,
   auto_integrations = false,
   integrations = {
-    cmp = true,
+    blink_cmp = true,
     gitsigns = true,
     nvimtree = true,
     treesitter = true,

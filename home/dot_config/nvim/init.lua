@@ -29,6 +29,8 @@ vim.api.nvim_create_autocmd("PackChanged", {
 vim.pack.add({
   gh("catppuccin/nvim"),
   gh("nvim-mini/mini.nvim"),
+  gh("saghen/blink.lib"),
+  gh("saghen/blink.cmp"),
   gh("ammix/chezmoi.nvim"),
   gh("nvim-treesitter/nvim-treesitter"),
   gh("neovim/nvim-lspconfig"),
