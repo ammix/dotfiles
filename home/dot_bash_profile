@@ -7,9 +7,6 @@ if [ -f "${HOME}/.profile" ]; then
   . "${HOME}/.profile"
 fi
 
-# Environment
-export PATH="$PATH:$HOME/.local/share/bob/nvim-bin/"
-
 export EDITOR=nvim
 export SUDO_EDITOR=nvim
 export VISUAL=nvim

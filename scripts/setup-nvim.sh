@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-cargo install bob-nvim
-bob use nightly
+cargo install --locked --git https://github.com/ammix/nv.git
+nv use nightly
