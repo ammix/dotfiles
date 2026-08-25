@@ -1,2 +1,0 @@
-{{- /* chezmoi:modify-template */ -}}
-{{- .chezmoi.stdin | fromIni | setValueAtPath "Context.sockets" "fallback-x11;!x11" | toIni -}}
