@@ -26,7 +26,6 @@ vim.o.number = true
 vim.o.relativenumber = true
 vim.o.showmode = false
 vim.o.scrolloff = 10
-vim.o.scrolloffpad = 1
 vim.o.winborder = "rounded"
 vim.o.pumborder = "rounded"
 vim.o.cursorline = true
