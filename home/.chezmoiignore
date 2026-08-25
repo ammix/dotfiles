@@ -1,3 +1,13 @@
 codex-config.toml
 nvim-pack-lock.json
 qutebrowser-bookmarks
+
+{{- if eq .chezmoi.os "darwin" }}
+.Xresources
+.config/environment.d
+.config/mpd
+.config/systemd
+.local/share/applications
+.local/share/flatpak
+.local/share/icons
+{{- end }}
