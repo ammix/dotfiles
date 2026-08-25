@@ -48,18 +48,13 @@ require("nvim-treesitter").install(languages)
 -- Runtime
 vim.api.nvim_create_autocmd("FileType", {
   desc = "Enable treesitter highlighting and indent",
-  callback = function(ctx)
+  callback = function()
     local ok = pcall(vim.treesitter.start)
     if not ok then
       return
     end
 
-    local noIndent = {
-      -- add filetypes
-    }
-    if not vim.list_contains(noIndent, ctx.match) then
-      vim.bo.indentexpr = require("nvim-treesitter").indentexpr
-    end
+    vim.bo.indentexpr = require("nvim-treesitter").indentexpr
   end,
 })
 

@@ -46,7 +46,6 @@ system_apps_output=$(flatpak list --system --app --columns=application)
 if [[ -n "${system_apps_output//[[:space:]]/}" ]]; then
 	mapfile -t system_apps <<<"$system_apps_output"
 	for app_id in "${system_apps[@]}"; do
-		[[ -n "$app_id" ]] || continue
 		flatpak install --user --assumeyes flathub "$app_id"
 		flatpak uninstall --system --assumeyes "$app_id"
 	done
@@ -62,7 +61,6 @@ system_remotes_output=$(flatpak remotes --system --columns=name)
 if [[ -n "${system_remotes_output//[[:space:]]/}" ]]; then
 	mapfile -t system_remotes <<<"$system_remotes_output"
 	for remote in "${system_remotes[@]}"; do
-		[[ -n "$remote" ]] || continue
 		flatpak remote-delete --system "$remote"
 	done
 fi

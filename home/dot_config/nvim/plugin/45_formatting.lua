@@ -46,7 +46,6 @@ require("conform").setup({
 
 -- Linting
 local lint = require("lint")
-lint.linters_by_ft = lint.linters_by_ft or {}
 lint.linters_by_ft["markdown"] = nil
 lint.linters_by_ft["text"] = nil
 

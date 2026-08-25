@@ -210,12 +210,9 @@ statusline.section_fileinfo = function(args)
 
   -- Get icon using mini.icons instead of nvim-web-devicons
   if filetype ~= "" then
-    local has_icons, icons = pcall(require, "mini.icons")
-    if has_icons then
-      local icon = icons.get("filetype", filetype) or ""
-      if icon ~= "" then
-        filetype = icon .. " " .. filetype
-      end
+    local icon = require("mini.icons").get("filetype", filetype) or ""
+    if icon ~= "" then
+      filetype = icon .. " " .. filetype
     end
   end
 
@@ -231,7 +228,7 @@ local map = vim.keymap.set
 
 map("n", "<leader>qs", function()
   local session_name = vim.fn.input("Session name: ")
-  if session_name and session_name ~= "" then
+  if session_name ~= "" then
     require("mini.sessions").write(session_name)
   end
 end, { desc = "Save session" })

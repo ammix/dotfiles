@@ -11,10 +11,9 @@ end
 -- Updates
 vim.api.nvim_create_autocmd("PackChanged", {
   callback = function(ev)
-    local data = ev.data or {}
-    local spec = data.spec or {}
+    local data = ev.data
     local kind = data.kind
-    local name = spec.name
+    local name = data.spec.name
 
     if name == "nvim-treesitter" and (kind == "install" or kind == "update") then
       if not data.active then
