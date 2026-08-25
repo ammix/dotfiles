@@ -26,7 +26,11 @@
 ## Code Practices
 
 - Do not write comments that summarize code; comments should explain "why" for non-obvious decisions only
-- Write no fallbacks, always prefer to fail loudly.
+- Do not add speculative fallbacks; fail loudly when an unexpected state is genuinely possible.
+- Avoid defensive guards for impossible states in configuration and dotfiles. For a Darwin/Linux-only repository:
+  - Bad: `if Darwin then macOS path elseif Linux then Linux path else error`
+  - Good: `if Darwin then macOS path else Linux path`
+- Reserve assertions for meaningful invariants in executable code.
 - Prefer implementing functionality in existing files unless it's a new logical component; avoid many small files
 - Keep diffs small and intentional; avoid drive-by refactors in unrelated areas.
 
@@ -36,7 +40,8 @@
 
 ## Validation
 
-After making changes, run the repository-defined validation workflow.
+- Do not run formatting, staging, builds, tests, or validation for documentation-only changes such as Markdown or other non-executable prose, even when the repository has a standard validation workflow.
+- After changes that can affect behavior, run the repository-defined validation workflow.
 
 - If a `Justfile`/`justfile` is present, use its canonical targets for formatting and validation.
 - Run formatting first, then run the repository's check/test targets in the documented order.
