@@ -1,6 +1,7 @@
 codex-config.toml
 nvim-pack-lock.json
 qutebrowser-bookmarks
+**/Session.vim
 
 {{- if eq .chezmoi.os "darwin" }}
 .Xresources
