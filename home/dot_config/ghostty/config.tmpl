@@ -22,10 +22,14 @@ font-size = 13
 
 # Windows
 maximize = false
+{{ if eq .chezmoi.os "darwin" }}
+macos-titlebar-style = hidden
+{{ else }}
 window-decoration = none
+window-show-tab-bar = never
+{{ end }}
 window-padding-balance = true
 window-padding-x = 5
-window-show-tab-bar = never
 
 window-inherit-working-directory = false
 tab-inherit-working-directory = true
