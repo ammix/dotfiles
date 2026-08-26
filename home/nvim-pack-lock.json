@@ -13,7 +13,7 @@
       "src": "https://github.com/catppuccin/nvim"
     },
     "chezmoi.nvim": {
-      "rev": "cf56284588762bf72c99a25c769f4a43d6c9b9cf",
+      "rev": "2fc096c57c5de81d5d431f2920d08d4232b5e2ef",
       "src": "https://github.com/ammix/chezmoi.nvim"
     },
     "conform.nvim": {
