@@ -7,9 +7,6 @@ web_search = "live"
 [projects."/home/maxim/.local/share/chezmoi"]
 trust_level = "trusted"
 
-[projects."/home/maxim/Vault"]
-trust_level = "trusted"
-
 [projects."/home/maxim/ammix-os"]
 trust_level = "trusted"
 
@@ -22,16 +19,7 @@ trust_level = "trusted"
 [projects."/var/home/maxim/.local/share/chezmoi"]
 trust_level = "trusted"
 
-[projects."/var/home/maxim/mydots"]
-trust_level = "trusted"
-
 [projects."/var/home/maxim/Projects/finances-libcosmic"]
-trust_level = "trusted"
-
-[projects."/var/home/maxim/Games"]
-trust_level = "trusted"
-
-[projects."/var/home/maxim/Pictures/wallpapers"]
 trust_level = "trusted"
 
 [projects."/var/home/maxim/Projects/chezmoi.nvim"]
