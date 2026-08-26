@@ -51,7 +51,6 @@ miniclue.setup({
   },
 
   clues = {
-    -- Enhance this by adding descriptions for <Leader> mapping groups
     miniclue.gen_clues.square_brackets(),
     miniclue.gen_clues.builtin_completion(),
     miniclue.gen_clues.g(),
@@ -113,14 +112,9 @@ require("mini.diff").setup({
 -- Editing
 require("mini.pairs").setup({
   modes = { insert = true, command = true, terminal = true },
-  -- skip autopair when next character is one of these
   skip_next = [=[[%w%%%'%[%"%.%`%$]]=],
-  -- skip autopair when the cursor is inside these treesitter nodes
   skip_ts = { "string" },
-  -- skip autopair when next character is closing pair
-  -- and there are more closing pairs than opening pairs
   skip_unbalanced = true,
-  -- better deal with markdown code blocks
   markdown = true,
 })
 
@@ -134,13 +128,13 @@ require("mini.splitjoin").setup({
 
 require("mini.surround").setup({
   mappings = {
-    add = "gsa", -- Add surrounding in Normal and Visual modes
-    delete = "gsd", -- Delete surrounding
-    find = "gsf", -- Find surrounding (to the right)
-    find_left = "gsF", -- Find surrounding (to the left)
-    highlight = "gsh", -- Highlight surrounding
-    replace = "gsr", -- Replace surrounding
-    update_n_lines = "gsn", -- Update `n_lines`
+    add = "gsa",
+    delete = "gsd",
+    find = "gsf",
+    find_left = "gsF",
+    highlight = "gsh",
+    replace = "gsr",
+    update_n_lines = "gsn",
   },
 })
 
@@ -208,7 +202,6 @@ end
 statusline.section_fileinfo = function(args)
   local filetype = vim.bo.filetype
 
-  -- Get icon using mini.icons instead of nvim-web-devicons
   if filetype ~= "" then
     local icon = require("mini.icons").get("filetype", filetype) or ""
     if icon ~= "" then
