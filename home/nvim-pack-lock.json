@@ -1,7 +1,7 @@
 {
   "plugins": {
     "blink.cmp": {
-      "rev": "d50cfb205c677143d1f036a4749e21c1c8c6bc85",
+      "rev": "101d71861f6a012f2be80e4100720874330d86aa",
       "src": "https://github.com/saghen/blink.cmp"
     },
     "blink.lib": {
@@ -21,11 +21,11 @@
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "leap.nvim": {
-      "rev": "c1be35db274f5976cce683b93fcab99937420b63",
+      "rev": "5db34d1a302ef18bc819dc8a38011abe29dae229",
       "src": "https://codeberg.org/andyg/leap.nvim"
     },
     "mini.nvim": {
-      "rev": "8d86a057fa14681cf7cab74ea7cba894a0abe14f",
+      "rev": "0caecdd7408bc0a77697a83b931c742fcc5b0349",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "neogit": {
@@ -41,7 +41,7 @@
       "src": "https://github.com/catppuccin/nvim"
     },
     "nvim-lint": {
-      "rev": "0370fe965697aa8f04252a1562441bdc13723cd1",
+      "rev": "3d55c8f67c6ae5c15e1042571e107c7a3d5c5f4e",
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
@@ -69,7 +69,7 @@
       "src": "https://github.com/chomosuke/typst-preview.nvim"
     },
     "vim-floaterm": {
-      "rev": "0e8e95f7be74b900bc7d3bc54d9b65211b264ace",
+      "rev": "b6cb65ef9c8db5c16c3f9ba10959989f2db10575",
       "src": "https://github.com/voldikss/vim-floaterm"
     }
   }
