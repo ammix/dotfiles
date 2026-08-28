@@ -9,6 +9,8 @@
 - Open Pull Requests when done with a feature and all tests and checks pass
 - Use the `writing-commit-messages` skill whenever drafting, reviewing, organizing, or creating commits.
 - Follow project-local commit conventions when present. Otherwise, use Conventional Commits with a mandatory scope: `<type>(<scope>): <description>`.
+- Never push commits yourself.
+- Never open PRs yourself.
 
 ## MCP Tooling
 

@@ -1,0 +1,17 @@
+[user]
+name = "ammix"
+email = "maxim@ammix.dev"
+
+[ui]
+editor = "nvim"
+paginate = "never"
+default-command = "log"
+merge-editor = ["meld", "$left", "$base", "$right", "-o", "$output"]
+
+[signing]
+behavior = "own"
+backend = "ssh"
+key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKGxbPlDp/9pyWuI34iZg18ooUjeM4slGu3zPdfDy93V"
+
+[snapshot]
+max-new-file-size = 99903360
