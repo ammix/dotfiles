@@ -1,3 +1,16 @@
-[custom_commands."new from checked parents"]
-key = ["N"]
-args = ["new", "all:$checked_commit_ids"]
+[[actions]]
+name = "new from checked parents"
+lua = '''
+local args = { "new" }
+for _, commit_id in ipairs(context.checked_commit_ids()) do
+  table.insert(args, commit_id)
+end
+jj_async(args)
+revisions.refresh()
+'''
+
+[[bindings]]
+action = "new from checked parents"
+key = "N"
+scope = "revisions"
+desc = "new from checked parents"
