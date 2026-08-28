@@ -2,7 +2,7 @@
 
 ## Git and GitHub CLI Usage
 
-**Never rewrite git history of the main branch.** Only the user is allowed actions such as force pushing, dropping commits, etc.
+**Never rewrite git history of the main branch.** The user has to give you explicit, fully verbalised permission.
 - Create feature branches for multi-file features or refactors that benefit from isolated review, never create feature branches for small changes
 - Use the `gh` CLI for GitHub operations (PRs, issues, etc.)
 - GitHub authentication is provided by the existing 1Password Bash integration. Run authenticated `gh` commands via `bash -lc 'gh ...'` with sandbox escalation (`require_escalated`) because the 1Password desktop socket is unavailable inside the sandbox.

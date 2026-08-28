@@ -2,6 +2,10 @@
 name = "ammix"
 email = "maxim@ammix.dev"
 
+[git]
+fetch = ["upstream", "origin"]
+push = "origin"
+
 [ui]
 editor = "nvim"
 paginate = "never"

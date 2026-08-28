@@ -1,0 +1,3 @@
+[custom_commands."new from checked parents"]
+key = ["N"]
+args = ["new", "all:$checked_commit_ids"]

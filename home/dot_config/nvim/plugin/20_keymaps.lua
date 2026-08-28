@@ -58,3 +58,4 @@ map("n", "<leader>u", "<CMD>Undotree<CR>", { desc = "Undotree" })
 map("n", "<leader>t", "<CMD>FloatermToggle<CR>", { desc = "Toggle terminal" })
 
 map("n", "<leader>gg", "<CMD>Neogit<CR>", { desc = "Neogit" })
+map("n", "<leader>gj", "<CMD>FloatermNew jjui<CR>", { desc = "Jujutsu UI" })
