@@ -8,6 +8,9 @@ paginate = "never"
 default-command = "log"
 merge-editor = ["meld", "$left", "$base", "$right", "-o", "$output"]
 
+[revsets]
+bookmark-advance-to = "@-"
+
 [signing]
 behavior = "own"
 backend = "ssh"
