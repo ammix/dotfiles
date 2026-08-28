@@ -11,7 +11,10 @@ fmt:
 stage:
     scripts/stage.sh
 
-init-system: setup-rust setup-nvim setup-flatpaks setup-user-services init-music
+init-system: setup-asdf setup-rust setup-nvim setup-flatpaks setup-user-services init-music
+
+setup-asdf:
+    scripts/setup-asdf.sh
 
 setup-flatpaks:
     scripts/setup-flatpaks.sh
