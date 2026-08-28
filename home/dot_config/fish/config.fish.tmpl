@@ -14,7 +14,8 @@ set -gx MANPAGER 'nvim +Man!'
 set -gx MANROFFOPT -c
 set -gx VIRTUAL_ENV_DISABLE_PROMPT 1
 set -gx SSH_AUTH_SOCK "{{ if eq .chezmoi.os "darwin" }}$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock{{ else }}$HOME/.1password/agent.sock{{ end }}"
-fish_add_path --global "$HOME/.local/bin" "$HOME/.cargo/bin"
+
+fish_add_path --global "$HOME/.local/bin" "$HOME/.cargo/bin" "$HOME/go/bin"
 
 # Interactive
 status is-interactive; and begin
