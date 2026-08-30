@@ -13,7 +13,7 @@
       "src": "https://github.com/catppuccin/nvim"
     },
     "chezmoi.nvim": {
-      "rev": "2fc096c57c5de81d5d431f2920d08d4232b5e2ef",
+      "rev": "9c764a1aa49b6df0c8ceb48e4031561db7aa67bc",
       "src": "https://github.com/ammix/chezmoi.nvim"
     },
     "conform.nvim": {
@@ -25,7 +25,7 @@
       "src": "https://codeberg.org/andyg/leap.nvim"
     },
     "mini.nvim": {
-      "rev": "1098976ddda3cf00f50c1dda5eef10ccf463d9eb",
+      "rev": "fb2bbae327f3c306f3c825031345b89dd176ce60",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "neogit": {
@@ -69,7 +69,7 @@
       "src": "https://github.com/chomosuke/typst-preview.nvim"
     },
     "vim-floaterm": {
-      "rev": "2c417392d974183049b6b6beeab5d3306e6031f2",
+      "rev": "7712701c5d20a0f9c935fbc2a6334083ce89b558",
       "src": "https://github.com/voldikss/vim-floaterm"
     }
   }
