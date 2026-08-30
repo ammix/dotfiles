@@ -22,6 +22,9 @@ setup-flatpaks:
 setup-nvim:
     scripts/setup-nvim.sh
 
+setup-notes:
+    gh repo clone ammix/notes "$HOME/.local/share/notes"
+
 setup-rust:
     scripts/setup-rust.sh
 
