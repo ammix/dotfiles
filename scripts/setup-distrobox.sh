@@ -15,6 +15,7 @@ distrobox enter "$BOX" -- bash -c "
     terra-release
 
   sudo dnf install -y \
+    cargo \
     cargo2rpm \
     go2rpm \
     anda \
