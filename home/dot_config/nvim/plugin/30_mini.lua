@@ -19,6 +19,7 @@ require("mini.pick").setup()
 require("mini.input").setup()
 
 -- Interface
+--[[
 local miniclue = require("mini.clue")
 miniclue.setup({
   triggers = {
@@ -60,6 +61,7 @@ miniclue.setup({
     miniclue.gen_clues.z(),
   },
 })
+]]
 
 require("mini.notify").setup({
   window = {

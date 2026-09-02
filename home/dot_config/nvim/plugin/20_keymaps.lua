@@ -19,11 +19,6 @@ map("t", "<M-l>", "<Right>", { desc = "Move Right" })
 -- Windows
 map("n", "<leader>w", "<C-w>", { desc = "Window Prefix" })
 
-map("n", "<C-h>", "<C-w>h", { desc = "Focus left" })
-map("n", "<C-j>", "<C-w>j", { desc = "Focus below" })
-map("n", "<C-k>", "<C-w>k", { desc = "Focus above" })
-map("n", "<C-l>", "<C-w>l", { desc = "Focus right" })
-
 map("n", "<C-Left>", "<C-w><", { desc = "Resize Left" })
 map("n", "<C-Down>", "<C-w>-", { desc = "Resize Down" })
 map("n", "<C-Up>", "<C-w>+", { desc = "Resize Up" })
