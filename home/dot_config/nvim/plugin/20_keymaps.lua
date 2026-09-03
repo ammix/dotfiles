@@ -25,6 +25,8 @@ map("n", "<C-Up>", "<C-w>+", { desc = "Resize Up" })
 map("n", "<C-Right>", "<C-w>>", { desc = "Resize Right" })
 
 -- Actions
+map("n", "<leader>ms", "1Q", { desc = "Add cursors at search matches" })
+map("n", "<leader>mf", "q=", { desc = "Toggle multicursor follow mode" })
 map({ "n", "v" }, "gy", '"+y', { desc = "Yank to system clipboard" })
 map({ "n", "v" }, "gp", '"+p', { desc = "Paste from system clipboard" })
 
