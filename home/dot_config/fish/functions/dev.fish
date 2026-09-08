@@ -4,8 +4,29 @@ function dev
         return 1
     end
 
-    set -l project (find "$HOME/Projects" -mindepth 1 -maxdepth 1 -type d | fzf)
-    test -n "$project"; or return
+    set -l selection (
+        begin
+            for session in "$HOME/.config/kitty/sessions/"*.kitty-session
+                printf 'session\t[session] %s\t%s\n' (path basename -E "$session") "$session"
+            end
+
+            for project in (find "$HOME/Projects" -mindepth 1 -maxdepth 1 -type d)
+                printf 'project\t[project] %s\t%s\n' (path basename "$project") "$project"
+            end
+        end | fzf --delimiter='\t' --with-nth=2
+    )
+    test -n "$selection"; or return
+
+    set -l fields (string split \t -- "$selection")
+    set -l kind "$fields[1]"
+    set -l target "$fields[3]"
+
+    if test "$kind" = session
+        kitten @ action goto_session "$target"
+        return
+    end
+
+    set -l project "$target"
 
     set -l project_name (path basename "$project")
     set -l session_name "$project_name.project"
