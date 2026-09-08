@@ -94,13 +94,3 @@ def --env y [...args] {
     cd $cwd
   }
 }
-
-# Hooks
-$env.config.hooks.pre_prompt = (
-  $env.config.hooks.pre_prompt?
-  | default []
-  | append {||
-      let values = (direnv export json | from json --strict | default {})
-      $values | items {|key, value| [$key $value] } | where {|pair| $pair.1 != null } | into record | load-env
-    }
-)
