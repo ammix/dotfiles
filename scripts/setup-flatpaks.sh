@@ -41,29 +41,25 @@ apps=(
 	fr.handbrake.ghb
 )
 
-flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+flatpak remote-add --system --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 system_apps_output=$(flatpak list --system --app --columns=application)
 if [[ -n "${system_apps_output//[[:space:]]/}" ]]; then
 	mapfile -t system_apps <<<"$system_apps_output"
 	for app_id in "${system_apps[@]}"; do
-		flatpak install --user --assumeyes flathub "$app_id"
-		flatpak uninstall --system --assumeyes "$app_id"
+		flatpak install --system --reinstall --assumeyes flathub "$app_id"
 	done
 fi
 
-system_refs_output=$(flatpak list --system --columns=ref)
-if [[ -n "${system_refs_output//[[:space:]]/}" ]]; then
-	mapfile -t system_refs <<<"$system_refs_output"
-	flatpak uninstall --system --assumeyes "${system_refs[@]}"
-fi
+flatpak install --system --noninteractive flathub "${apps[@]}"
+flatpak uninstall --system --unused --assumeyes
 
 system_remotes_output=$(flatpak remotes --system --columns=name)
 if [[ -n "${system_remotes_output//[[:space:]]/}" ]]; then
 	mapfile -t system_remotes <<<"$system_remotes_output"
 	for remote in "${system_remotes[@]}"; do
-		flatpak remote-delete --system "$remote"
+		if [[ "$remote" != flathub ]]; then
+			flatpak remote-delete --system "$remote"
+		fi
 	done
 fi
-
-flatpak install --user --noninteractive flathub "${apps[@]}"

@@ -1,3 +1,3 @@
 function cleanup
-    flatpak uninstall --user --unused --assumeyes
+    flatpak uninstall --system --unused --assumeyes
 end

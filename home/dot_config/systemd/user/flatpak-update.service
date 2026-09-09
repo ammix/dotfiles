@@ -1,6 +1,0 @@
-[Unit]
-Description=Update user Flatpak applications
-
-[Service]
-Type=oneshot
-ExecStart=/usr/bin/flatpak update --user --noninteractive

@@ -31,7 +31,7 @@ $env.config.completions.external = {
 }
 
 # Aliases
-alias fu = flatpak uninstall --user --delete-data
+alias fu = flatpak uninstall --system --delete-data
 
 alias ga = git add
 alias gaa = git add --all

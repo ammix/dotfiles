@@ -25,7 +25,7 @@ status is-interactive; and begin
     end
 
     abbr --add -- consolidate-here 'fd -t f -X mv -b -t .; fd -t d -x rmdir'
-    abbr --add -- fu 'flatpak uninstall --user --delete-data'
+    abbr --add -- fu 'flatpak uninstall --system --delete-data'
 
     abbr --add -- cha 'chezmoi apply -v'
     abbr --add -- chd 'chezmoi diff'
