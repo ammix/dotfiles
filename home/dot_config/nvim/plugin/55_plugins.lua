@@ -4,8 +4,6 @@ vim.cmd.packadd("nvim.difftool")
 
 require("typst-preview").setup({})
 
-require("neogit").setup({})
-
 -- Oil
 require("oil").setup({
   columns = {
