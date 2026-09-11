@@ -20,7 +20,6 @@ vim.filetype.add({
     [".*/git/config%.tmpl"] = { "gitconfig", { priority = 10 } },
     [".*/hypr/.+%.conf"] = "hyprlang",
     ["%.env%.[%w_.-]+"] = "sh",
-    [".+%.jjdescription"] = "gitcommit",
     [".+%.tmpl"] = match_template,
   },
 })
