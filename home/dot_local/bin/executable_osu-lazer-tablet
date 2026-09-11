@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+
+set -Eeuo pipefail
+
+evsieve_pid=
+osu_pid=
+osu_pgid=
+
+cleanup() {
+	status=$?
+	trap - EXIT HUP INT TERM
+
+	if [[ -n "$osu_pgid" ]] && kill -0 -- "-$osu_pgid" 2>/dev/null; then
+		kill -- "-$osu_pgid" 2>/dev/null || true
+	fi
+	if [[ -n "$osu_pid" ]] && kill -0 "$osu_pid" 2>/dev/null; then
+		kill "$osu_pid" 2>/dev/null || true
+	fi
+	if [[ -n "$evsieve_pid" ]] && kill -0 "$evsieve_pid" 2>/dev/null; then
+		kill "$evsieve_pid" 2>/dev/null || true
+	fi
+	for pid in "$osu_pid" "$evsieve_pid"; do
+		if [[ -n "$pid" ]]; then
+			wait "$pid" 2>/dev/null || true
+		fi
+	done
+
+	exit "$status"
+}
+
+trap cleanup EXIT
+trap 'exit 129' HUP
+trap 'exit 130' INT
+trap 'exit 143' TERM
+
+"$HOME/.local/bin/evsieve" \
+	--input /dev/input/by-id/usb-Wacom_Co._Ltd._CTL-472_2EA00L1017708-event-mouse grab \
+	--map 'abs:x:~3199' abs:x:0 yield \
+	--map 'abs:x:3200~12000' abs:x:1.72727x-5527 yield \
+	--map 'abs:x:12001~' abs:x:15200 yield \
+	--map 'abs:y:~1999' abs:y:0 yield \
+	--map 'abs:y:2000~7500' abs:y:1.72727x-3455 yield \
+	--map 'abs:y:7501~' abs:y:9500 yield \
+	--output 'name=Wacom One osu area' &
+evsieve_pid=$!
+
+OSU_SDL3=0 setsid /usr/bin/osu-lazer "$@" &
+osu_pid=$!
+osu_pgid=$osu_pid
+
+if wait -n "$evsieve_pid" "$osu_pid"; then
+	exit 0
+else
+	exit $?
+fi
